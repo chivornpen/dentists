@@ -14,14 +14,14 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 {!! Form::label('Branch Name') !!}
-                                {!! Form::text('name',null,['class'=>'form-control border-radius','required'=>'true','id'=>'name']) !!}
+                                {!! Form::text('name',null,['class'=>'edit-form-control','required'=>'true','id'=>'name']) !!}
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
                                 {!! Form::label('Branch Local') !!}
-                                {!! Form::text('branchlocal',null,['class'=>'form-control border-radius','required','id'=>'branchlocal']) !!}
+                                {!! Form::text('branchlocal',null,['class'=>'edit-form-control','required','id'=>'branchlocal']) !!}
                             </div>
                         </div>
 
@@ -30,13 +30,13 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 {!! Form::label('Short Name') !!}
-                                {!! Form::text('shortname',null,['class'=>'form-control border-radius','required','id'=>'shortname']) !!}
+                                {!! Form::text('shortname',null,['class'=>'edit-form-control','required','id'=>'shortname']) !!}
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 {!! Form::label('Postal Code') !!}
-                                {!! Form::number('pcode',null,['class'=>'form-control border-radius','required','min'=>0,'id'=>'pocode']) !!}
+                                {!! Form::number('pcode',null,['class'=>'edit-form-control','required','min'=>0,'id'=>'pocode']) !!}
                             </div>
                         </div>
                     </div>
