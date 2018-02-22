@@ -33,6 +33,11 @@
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
 
+        //Branch
+        Route::resource('/branch','branchController');
+
+
+
 
     });
 
