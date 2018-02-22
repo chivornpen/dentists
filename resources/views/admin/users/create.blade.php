@@ -119,7 +119,7 @@
                                     <!-- /.box-body -->
                             </div>
                             <!-- Modal -->
-                            <div id="myModal" class="modal fade" role="dialog">
+                            <div id="editUser" class="modal fade" role="dialog">
                                 <div id="editUser">
 
                                 </div>

@@ -24,7 +24,6 @@
         //user
         Route::get('/admin/user','UserController@create');
         Route::post('/admin/user/stored','UserController@stored');
-
         Route::get('/admin/user/edit/{id}','UserController@edit');
         Route::patch('/admin/user/update/{id}','UserController@update');
         Route::get('/admin/user/view/{id}','UserController@viewUser');
@@ -32,6 +31,12 @@
         Route::get('/admin/get/user','UserController@getUserList');
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
+
+        //staff
+        Route::resource('staff','StaffController');
+        Route::get('/staff/edit/{id}','StaffController@edit');
+        Route::get('/staff/delete/{id}','StaffController@destroy');
+        Route::get('/staff/view/{id}','StaffController@show');
 
 
     });
