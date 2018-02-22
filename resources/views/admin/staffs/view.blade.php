@@ -1,11 +1,18 @@
-<div class="container-fluid">
-        <div class="table-responsive">
+
+<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content" style="border-radius:5px;">
+        <div class="modal-header">
+            Staff Details
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
             <div class="center">
-                <img src='{{asset("/photo/$staff->photo")}}' alt=""  style="height: 120px; border-radius: 80px; border: 2px solid #346895; padding: 2px; margin: 0 auto;">
+                <img src='{{asset("/photo/$staff->photo")}}' alt="" style="height: 120px; border-radius: 80px; border: 2px solid #346895; padding: 2px; margin: 0 auto;">
             </div>
             <br>
             <div style="margin: 0 10% 0 10%;">
-                <table border="0px" width="100%" class="table table-condensed text-left">
+                <table width="100%" border="0px" class="table table-condensed">
                     <tr>
                         <td>Staff Name</td>
                         <td>{{$staff->name}}</td>
@@ -49,4 +56,11 @@
                 </table>
             </div>
         </div>
-</div>
+    </div>
+
+
+
+
+
+
+

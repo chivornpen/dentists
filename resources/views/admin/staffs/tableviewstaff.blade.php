@@ -10,7 +10,7 @@
             <th>Contact</th>
             <th>Email</th>
             <th>BaseSalary</th>
-            <th style="width:20%; !important;" class="center">Action</th>
+            <th class="center">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -25,12 +25,11 @@
                 <td style="line-height: 50px">{{$s->email}}</td>
                 <td style="line-height: 50px">{{$s->baseSalary}}</td>
                 <td style="line-height: 50px" class="center">
-                    <a onclick='editStaff("{{$s->id}}")' title="Edit User" class="cursor-pointer pandding-2"><i class="fa fa-edit"></i></a>
-                    <a onclick='deleteStaff("{{$s->id}}")' title="Delete User" class="cursor-pointer pandding-2"><i class="fa fa-trash cursor-pointer" style="color: red;"></i></a>
-                    <a onclick='viewStaff("{{$s->id}}")' title="View Details" class="cursor-pointer pandding-2"><i class="fa fa-eye"></i></a>
+                    <a onclick='editStaff("{{$s->id}}")' title="Edit User" class="cursor-pointer fa fa-edit icon-edit"></a>
+                    <a onclick='deleteStaff("{{$s->id}}")' title="Delete User" class="fa fa-trash cursor-pointer icon-delete"></a>
+                    <a onclick='viewStaff("{{$s->id}}")' data-toggle="modal" data-target="#viewStaff" title="View Details" class="cursor-pointer fa fa-eye icon-view"></a>
                 </td>
         </tr>
-
         @endforeach
         </tbody>
     </table>

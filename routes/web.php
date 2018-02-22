@@ -32,18 +32,13 @@
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
 
-<<<<<<< HEAD
         //staff
         Route::resource('staff','StaffController');
         Route::get('/staff/edit/{id}','StaffController@edit');
         Route::get('/staff/delete/{id}','StaffController@destroy');
         Route::get('/staff/view/{id}','StaffController@show');
-=======
         //Branch
         Route::resource('/branch','branchController');
-
-
->>>>>>> f6839c811eb25cddd96f2140a4479ff6413dfe56
 
 
     });

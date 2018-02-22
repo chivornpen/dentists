@@ -1,3 +1,15 @@
+.icon-edit{
+    color: #f39c12;
+    padding: 3px;
+}
+.icon-delete{
+    color: #dd4b39;
+    padding: 3px;
+}
+.icon-view{
+    color: #00c0ef;
+    padding: 3px;
+}
 .edit-form-control {
     border-radius: 7px;
     padding: 6px 10px;

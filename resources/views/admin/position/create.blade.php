@@ -67,8 +67,8 @@
                                             <td>{{$p->description}}</td>
                                             <td>{{\App\User::where('id',$p->user_id)->value('name')}}</td>
                                             <td class="center">
-                                                <a href="#" onclick="updatePos('{{$p->id}}')" data-toggle="modal" data-target=".bs-example-modal-sm" class="pandding-2"><i class="fa fa-edit" style="color: #f39c12;"></i></a></a>
-                                                <a href="{{url('/admin/position/delete',[$p->id])}}" class="pandding-2"><i class="fa fa-trash" style="color: red;"></i></a>
+                                                <a href="#" onclick="updatePos('{{$p->id}}')" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-edit icon-edit"></i></a></a>
+                                                <a href="{{url('/admin/position/delete',[$p->id])}}"><i class="fa fa-trash icon-delete"></i></a>
 
                                             </td>
                                         </tr>

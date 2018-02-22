@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.master')
 @section('content')
     <br>
     <div class="container-fluid">
@@ -14,8 +14,8 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    {!! Form::label('Staff Name') !!}
-                                    {!! Form::text('name',null,['class'=>'form-control border-radius','placeholder'=>'Staff name']) !!}
+                                    {!! Form::label('name','Staff Name',['class'=>'edit-label']) !!}
+                                    {!! Form::text('name',null,['class'=>'edit-form-control text-blue','placeholder'=>'Staff name']) !!}
                                     @if($errors->has('name'))
                                         <span class="text-danger">{{$errors->first('name')}}</span>
                                     @endif
@@ -23,8 +23,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    {!! Form::label('Contact') !!}
-                                    {!! Form::text('contact',null,['class'=>'form-control border-radius','placeholder'=>'Phone number']) !!}
+                                    {!! Form::label('contact','Contact',['class'=>'edit-label']) !!}
+                                    {!! Form::text('contact',null,['class'=>'edit-form-control text-blue','placeholder'=>'Phone number']) !!}
                                     @if($errors->has('contact'))
                                         <span class="text-danger">{{$errors->first('contact')}}</span>
                                     @endif
@@ -58,8 +58,8 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    {!! Form::label('Level') !!}
-                                    {!! Form::text('level',null,['class'=>'form-control border-radius','placeholder'=>'Level']) !!}
+                                    {!! Form::label('level','Level',['class'=>'edit-label']) !!}
+                                    {!! Form::text('level',null,['class'=>'edit-form-control text-blue','placeholder'=>'Level']) !!}
                                     @if($errors->has('level'))
                                         <span class="text-danger">{{$errors->first('level')}}</span>
                                     @endif
@@ -67,8 +67,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    {!! Form::label('Email') !!}
-                                    {!! Form::email('email',null,['class'=>'form-control border-radius','placeholder'=>'example@email.com']) !!}
+                                    {!! Form::label('email','Email',['class'=>'edit-label']) !!}
+                                    {!! Form::email('email',null,['class'=>'edit-form-control text-blue','placeholder'=>'example@email.com']) !!}
                                     @if($errors->has('email'))
                                         <span class="text-danger">{{$errors->first('email')}}</span>
                                     @endif
@@ -76,8 +76,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    {!! Form::label('Commission') !!}
-                                    {!! Form::text('commission',null,['class'=>'form-control border-radius','placeholder'=>'Commission']) !!}
+                                    {!! Form::label('commission','Commission',['class'=>'edit-label']) !!}
+                                    {!! Form::text('commission',null,['class'=>'edit-form-control text-blue','placeholder'=>'Commission']) !!}
                                     @if($errors->has('commission'))
                                         <span class="text-danger">{{$errors->first('commission')}}</span>
                                     @endif
@@ -114,8 +114,8 @@
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    {!! Form::label('Base Salary') !!}
-                                    {!! Form::text('baseSalary',null,['class'=>'form-control border-radius','placeholder'=>'Base salary']) !!}
+                                    {!! Form::label('baseSalary','Base Salary',['class'=>'edit-label']) !!}
+                                    {!! Form::text('baseSalary',null,['class'=>'edit-form-control text-blue','placeholder'=>'Base salary']) !!}
                                     @if($errors->has('baseSalary'))
                                         <span class="text-danger">{{$errors->first('baseSalary')}}</span>
                                     @endif
@@ -123,8 +123,8 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    {!! Form::label('Branch Name') !!}
-                                    {!! Form::select('branch_id',$branch,null,['class'=>'form-control border-radius','placeholder'=>'Please select one' ]) !!}
+                                    {!! Form::label('branch_id','Branch Name',['class'=>'edit-label']) !!}
+                                    {!! Form::select('branch_id',$branch,null,['class'=>'edit-form-control text-blue','placeholder'=>'Please select one' ]) !!}
                                     @if($errors->has('branch_id'))
                                         <span class="text-danger">{{$errors->first('branch_id')}}</span>
                                     @endif
@@ -132,8 +132,8 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    {!! Form::label('Effect Date') !!}
-                                    {!! Form::date('effectDate',null,['class'=>'form-control border-radius']) !!}
+                                    {!! Form::label('effectDate','Effect Date',['class'=>'edit-label']) !!}
+                                    {!! Form::date('effectDate',null,['class'=>'edit-form-control text-blue']) !!}
                                     @if($errors->has('effectDate'))
                                         <span class="text-danger">{{$errors->first('effectDate')}}</span>
                                     @endif
@@ -141,8 +141,8 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    {!! Form::label('End Date') !!}
-                                    {!! Form::date('endDate',null,['class'=>'form-control border-radius']) !!}
+                                    {!! Form::label('endDate','End Date',['class'=>'edit-label']) !!}
+                                    {!! Form::date('endDate',null,['class'=>'edit-form-control text-blue']) !!}
                                     @if($errors->has('endDate'))
                                         <span class="text-danger">{{$errors->first('endDate')}}</span>
                                     @endif
@@ -154,8 +154,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    {!! Form::label('Address') !!}
-                                    {!! Form::textarea('address',null,['class'=>'form-control border-radius','rows'=>'2','placeholder'=>'Address']) !!}
+                                    {!! Form::label('address','Address',['class'=>'edit-label']) !!}
+                                    {!! Form::textarea('address',null,['class'=>'edit-form-control text-blue','rows'=>'2','placeholder'=>'Address']) !!}
                                     @if($errors->has('address'))
                                         <span class="text-danger">{{$errors->first('address')}}</span>
                                     @endif
@@ -179,21 +179,20 @@
                 </div>
                 {{--create--}}
             </div>
-            {{--Users Views--}}
             <div class="container-fluid">
                 <div class="panel panel-default">
                     <div class="panel-heading">Staff Views</div>
                     <div class="panel-body">
-                        <!-- /.box-header -->
                         <div id="listViews">
                             <div id="loading" class="center">
                                 <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
                             </div>
                         </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <div id="viewStaff">
+                        <div id="viewStaff" class="modal fade" role="dialog">
+                            <div id="viewStaff">
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,7 +259,7 @@
                 confirmButtonText: "Yes",
                 cancelButtonText : "No",
                 cancelButtonColor:"#d33",
-                confirmButtonColor: "red"
+                confirmButtonColor: "#dd4b39"
             }, function() {
                 $.ajax({
                     url : "{{url('/staff/delete')}}"+"/"+id,
@@ -286,12 +285,13 @@
                 url : "{{url('/staff/view/')}}"+"/"+id,
                 dataType : 'html'
                 ,success:function (data) {
-                    $.sweetModal({
-                        width: 'auto',
-                        content: data,
-                        type: $.sweetModal.TYPE_ALERT,
-                        theme: $.sweetModal.THEME_MIXED
-                    });
+                    $('#viewStaff').html(data);
+//                    $.sweetModal({
+//                        width: 'auto',
+//                        content: data,
+//                        type: $.sweetModal.TYPE_ALERT,
+//                        theme: $.sweetModal.THEME_MIXED
+//                    });
                 }, error:function (error) {
                     console.log(error);
                 }
