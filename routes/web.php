@@ -33,6 +33,12 @@
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
 
+        //Permission
+        Route::get('/admin/permission','PermissionContoller@create');
+        Route::get('/admin/permission/list','PermissionContoller@index');
+
+        Route::get('/admin/permission/on/{id}','PermissionContoller@edit');
+        Route::get('/admin/permission/off/{id}','PermissionContoller@show');
 
     });
 
