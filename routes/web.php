@@ -24,7 +24,6 @@
         //user
         Route::get('/admin/user','UserController@create');
         Route::post('/admin/user/stored','UserController@stored');
-
         Route::get('/admin/user/edit/{id}','UserController@edit');
         Route::patch('/admin/user/update/{id}','UserController@update');
         Route::get('/admin/user/view/{id}','UserController@viewUser');
@@ -33,12 +32,23 @@
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
 
+<<<<<<< HEAD
         //Permission
         Route::get('/admin/permission','PermissionContoller@create');
         Route::get('/admin/permission/list','PermissionContoller@index');
 
         Route::get('/admin/permission/on/{id}','PermissionContoller@edit');
         Route::get('/admin/permission/off/{id}','PermissionContoller@show');
+=======
+        //staff
+        Route::resource('staff','StaffController');
+        Route::get('/staff/edit/{id}','StaffController@edit');
+        Route::get('/staff/delete/{id}','StaffController@destroy');
+        Route::get('/staff/view/{id}','StaffController@show');
+        //Branch
+        Route::resource('/branch','branchController');
+
+>>>>>>> 7005f1e8f37c9841dbb77964755ec2850051722c
 
     });
 

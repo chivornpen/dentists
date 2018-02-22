@@ -15,7 +15,7 @@ class UserController extends Controller
     public function create(){
 
         $role = Role::pluck('name','id');
-        $position =Position::pluck('name','id');
+        $position =Position::where('active',1)->pluck('name','id');
         $user = User::where('active',1)->get();
         $per = Permission::where('isLock',0)->get();
         return view('admin.users.create',compact('role','position','user'));

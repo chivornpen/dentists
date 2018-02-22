@@ -11,7 +11,7 @@ class PositionController extends Controller
 {
 
     public function createPosition(){
-        $position = Position::all();
+        $position = Position::where('active',1)->get();
         return view('admin.position.create',compact('position'));
     }
 
@@ -28,6 +28,7 @@ class PositionController extends Controller
         $position->name = $request->input('name');
         $position->description = $request->input('description');
         $position->user_id = Auth::user()->id;
+        $position->active = 1;
         $position->save();
         return redirect('/admin/position/create');
 
@@ -50,7 +51,8 @@ class PositionController extends Controller
     public function deletePosition($id){
 
         $p=Position::find($id);
-        $p->delete();
+        $p->active = 0;
+        $p->save();
         return redirect('/admin/position/create');
     }
 

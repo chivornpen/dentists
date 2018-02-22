@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                             <div class="form-group">
-                                {!! Form::submit('Create',['class'=>'btn btn-primary btn-sm']) !!}
+                                {!! Form::submit('Create',['class'=>'btn btn-success btn-sm']) !!}
                                 {!! Form::reset('Reset',['class'=>'btn btn-warning btn-sm']) !!}
                             </div>
 
@@ -47,7 +47,7 @@
                     {!! Form::close() !!}
                         <div class="col-md-8">
                             <label for="">List views</label>
-                            <div class="form-group">
+                            <div class="form-group table-responsive">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -67,8 +67,8 @@
                                             <td>{{$p->description}}</td>
                                             <td>{{\App\User::where('id',$p->user_id)->value('name')}}</td>
                                             <td class="center">
-                                                <a href="#" onclick="updatePos('{{$p->id}}')" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bs-example-modal-sm">Edit</a>
-                                                <a href="{{url('/admin/position/delete',[$p->id])}}" class="btn btn-danger btn-xs">Delete</a>
+                                                <a href="#" onclick="updatePos('{{$p->id}}')" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-edit icon-edit"></i></a></a>
+                                                <a href="{{url('/admin/position/delete',[$p->id])}}"><i class="fa fa-trash icon-delete"></i></a>
 
                                             </td>
                                         </tr>
