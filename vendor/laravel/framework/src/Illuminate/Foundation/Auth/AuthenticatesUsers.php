@@ -4,6 +4,7 @@ namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 trait AuthenticatesUsers
 {
@@ -23,7 +24,7 @@ trait AuthenticatesUsers
      * Handle a login request to the application.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function login(Request $request)
     {
@@ -73,7 +74,7 @@ trait AuthenticatesUsers
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
-            $this->credentials($request), $request->has('remember')
+            $this->credentials($request), $request->filled('remember')
         );
     }
 
@@ -113,26 +114,35 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        //
+        
+        // if($user->isChangepw==0){
+        //     return redirect()->to('changepws');
+        // }
+        // if($user->isActive==0){
+        //         $user->isActive = 1;
+        //         $user->save();
+        //         return redirect()->intended($this->redirectPath());
+        // }elseif($user->isActive==1) {
+        //         return redirect()->to('login')->with('message','You Can not Login (This User Still in login);');    
+        // }else {
+        //         return redirect()->to('login')->with('message','This user not allowed to use');
+        // }
+        
     }
 
     /**
      * Get the failed login response instance.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws ValidationException
      */
     protected function sendFailedLoginResponse(Request $request)
     {
-        $errors = [$this->username() => trans('auth.failed')];
-
-        if ($request->expectsJson()) {
-            return response()->json($errors, 422);
-        }
-
-        return redirect()->back()
-            ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors($errors);
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.failed')],
+        ]);
     }
 
     /**
@@ -152,8 +162,12 @@ trait AuthenticatesUsers
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
-    {
-        $this->guard()->logout();
+    {   
+        // $userid=User::find($request->user_id);
+        // $userid->isActive=0;
+        // $userid->save();
+
+        // $this->guard()->logout();
 
         $request->session()->invalidate();
 
