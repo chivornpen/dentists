@@ -9,19 +9,20 @@
             </div>
 
             <div class="panel-body">
-                {!! Form::open(['method'=>'post','id'=>'branch']) !!}
+                <div id="editBranch">
+                    {!! Form::open(['method'=>'post','id'=>'branch']) !!}
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {!! Form::label('Branch Name') !!}
-                                {!! Form::text('name',null,['class'=>'edit-form-control','required'=>'true','id'=>'name']) !!}
+                                {!! Form::label('name','Branch Name',['class'=>'edit-label']) !!}
+                                {!! Form::text('name',null,['class'=>'edit-form-control text-blue','required'=>'true','id'=>'name','placeholder'=>'Branch Name']) !!}
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {!! Form::label('Branch Local') !!}
-                                {!! Form::text('branchlocal',null,['class'=>'edit-form-control','required','id'=>'branchlocal']) !!}
+                                {!! Form::label('branchlocal','Branch Local',['class'=>'edit-label']) !!}
+                                {!! Form::text('branchlocal',null,['class'=>'edit-form-control text-blue','required','id'=>'branchlocal','placeholder'=>'Branch Local']) !!}
                             </div>
                         </div>
 
@@ -29,22 +30,27 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {!! Form::label('Short Name') !!}
-                                {!! Form::text('shortname',null,['class'=>'edit-form-control','required','id'=>'shortname']) !!}
+                                {!! Form::label('shortname','Short Name',['class'=>'edit-label']) !!}
+                                {!! Form::text('shortname',null,['class'=>'edit-form-control text-blue','required','id'=>'shortname','placeholder'=>'Short name branch']) !!}
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {!! Form::label('Postal Code') !!}
-                                {!! Form::number('pcode',null,['class'=>'edit-form-control','required','min'=>0,'id'=>'pocode']) !!}
+                                {!! Form::label('pcode','Postal Code',['class'=>'edit-label']) !!}
+                                {!! Form::number('pcode',null,['class'=>'edit-form-control text-blue','required','min'=>0,'id'=>'pocode','placeholder'=>'Postal Code']) !!}
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="form-group">
-                                {!! Form::label('Head Branch') !!}
-                                {!! Form::checkbox('leadbranch',null,null) !!}
+                                <div class="checkbox checkbox-success">
+
+                                    {!! Form::checkbox('leadbranch',null,null,['id'=>'leadbranch']) !!}
+                                    <label for="leadbranch" class="edit-label">
+                                        Head Branch
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -53,7 +59,8 @@
                             {!! Form::submit('Create',['class'=>'btn btn-success btn-sm']) !!}
                         </div>
                     </div>
-                {!! Form::close() !!}
+                    {!! Form::close() !!}
+                </div>
             </div>
             <hr>
             <div class="panel-body">
@@ -75,22 +82,13 @@
     <script>
         $('#branch').submit(function (e) {
             e.preventDefault();
-            var token = $("input[name='_token']").val();
-            var name = $('#name').val();
-            var branchlocal = $('#branchlocal').val();
-            var shortname = $('#shortname').val();
-            var pocode = $('#pocode').val();
+            var data = $('#branch').serialize();
             if($('#pocode').val().length<6){
                 $.ajax({
                     type : 'post',
                     url  : "{{route('branch.store')}}",
-                    data : {
-                        _token:token,
-                        name:name,
-                        branchlocal:branchlocal,
-                        shortname:shortname,
-                        pocode:pocode
-                    },
+                    dataType: 'html',
+                    data : data,
                     beforeSend:function () {
 
                     },
@@ -128,6 +126,52 @@
                     console.log(error);
                 }
             });
+        }
+        function turnOn(id) {
+            $.ajax({
+                type : 'get',
+                url : "{{url('/branch/turn/on/')}}"+"/"+id,
+                dataType : 'html',
+                beforeSend:function () {
+
+                },success:function (data) {
+                    getContent();
+                }, error:function (error) {
+                    console.log(error);
+                }
+            });
+        }
+        function turnOff(id) {
+            $.ajax({
+                type : 'get',
+                url : "{{url('/branch/turn/off/')}}"+"/"+id,
+                dataType : 'html',
+                beforeSend:function () {
+
+                },success:function (data) {
+                   getContent();
+                }, error:function (error) {
+                    console.log(error);
+                }
+            });
+        }
+        function editBranch(id) {
+            $.ajax({
+                type : 'get',
+                url : "{{url('branch/edit/branch/')}}"+"/"+id,
+                dataType : 'html',
+                beforeSend:function () {
+
+                },success:function (data) {
+                    $('#editBranch').html(data);
+                }, error:function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function refresh() {
+            window.location.reload();
         }
     </script>
 @endsection

@@ -1,11 +1,14 @@
 .edit-form-control {
-    border-radius: 7px;
+    border-radius: 5px;
     padding: 6px 10px;
     border: 1px solid #ddd;
     font-family: "Times New Roman", serif;
     margin-bottom: 10px;
     /*box-shadow: 0 0px 1px 0px #9d9d9d;*/
     width: 100%;
+}
+.height-35px{
+    height:35px;
 }
 
 .edit-dropdown-control{
@@ -50,7 +53,7 @@
 }
 
 .edit-label{
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Freehand;
     font-size: 14px;
     margin-bottom: 5px;
 }
@@ -83,12 +86,13 @@
 /*https://bootsnipp.com/snippets/3knNB*/
 .border-radius{
     border-radius: 5px;
+
 }
 .hide{
     display:none;
 }
 .pandding-2{
-    padding: 2px;
+    padding: 4px;
 }
 .center{
     text-align: center;

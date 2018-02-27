@@ -35,6 +35,32 @@
 
         //Branch
         Route::resource('/branch','branchController');
+        Route::get('/branch/turn/off/{id}','branchController@turnOff'); //turn off branch
+        Route::get('/branch/turn/on/{id}','branchController@turnOn'); //turn on branch
+        Route::get('/branch/edit/branch/{id}','branchController@editBranch'); //edit branch
+
+        //client
+        Route::resource('/client','clientController');
+        Route::get('/client/turn/on/{id}','clientController@turnOn');
+        Route::get('/client/turn/off/{id}','clientController@turnOff');
+        Route::get('/client/edit/{id}','clientController@edit');
+
+        //treatment
+        Route::resource('/treatment','treatmentController');
+        Route::post('/treatment/create/','treatmentController@createTreatMentType');
+        Route::get('/treatment/get/view','treatmentController@viewTreatMentType');
+
+        Route::get('/treatment/turn/off/{id}','treatmentController@turnOff');
+        Route::get('/treatment/turn/on/{id}','treatmentController@turnOn');
+        Route::get('/treatment/turn/edit/{id}','treatmentController@editTreatmentType');
+        Route::get('/treatment/get/formCreate/','treatmentController@getFormCreat');
+        Route::post('/treatment/update/treatment/type','treatmentController@updateTreatmentType')->name('updateTreatmentType');
+        //treatment
+        Route::get('/treatment/view/current/create','treatmentController@viewTreatmentJustCreate');
+        Route::get('/treatment/view/treatment','treatmentController@viewTreatment')->name('view-treatment');
+        Route::get('/treatment/view/treatment/content','treatmentController@viewTreatmentContent')->name('view-treatment-content');
+        Route::get('/treatment/deactive/{id}','treatmentController@deactiveTreatment');
+        Route::get('/treatment/active/{id}','treatmentController@activeTreatment');
 
 
 
