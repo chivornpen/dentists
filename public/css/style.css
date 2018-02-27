@@ -19,6 +19,7 @@
     /*box-shadow: 0 0px 1px 0px #9d9d9d;*/
     width: 100%;
 }
+.required:after { content:" *";color:red }
 
 .edit-dropdown-control{
     border-radius: 4px;

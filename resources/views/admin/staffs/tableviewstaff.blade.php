@@ -25,8 +25,8 @@
                 <td style="line-height: 50px">{{$s->email}}</td>
                 <td style="line-height: 50px">{{$s->baseSalary}}</td>
                 <td style="line-height: 50px" class="center">
-                    <a onclick='editStaff("{{$s->id}}")' title="Edit User" class="cursor-pointer fa fa-edit icon-edit"></a>
-                    <a onclick='deleteStaff("{{$s->id}}")' title="Delete User" class="fa fa-trash cursor-pointer icon-delete"></a>
+                    <a onclick='editStaff("{{$s->id}}")' title="Edit Staff" class="cursor-pointer fa fa-edit icon-edit"></a>
+                    <a onclick='deleteStaff("{{$s->id}}")' title="Delete Staff" class="fa fa-trash cursor-pointer icon-delete"></a>
                     <a onclick='viewStaff("{{$s->id}}")' data-toggle="modal" data-target="#viewStaff" title="View Details" class="cursor-pointer fa fa-eye icon-view"></a>
                 </td>
         </tr>

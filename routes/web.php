@@ -17,7 +17,6 @@
         Route::get('/admin/position/create','PositionController@createPosition');
         Route::post('/admin/position/store','PositionController@store');
         Route::get('/admin/position/delete/{id}','PositionController@deletePosition');
-
         Route::get('/admin/position/edit/{id}','PositionController@edit');
         Route::patch('/admin/position/update/{id}','PositionController@updatePosition');
 
@@ -40,6 +39,20 @@
         //Branch
         Route::resource('/branch','branchController');
 
+        //doctor
+        Route::resource('doctor','DoctorController');
+        Route::get('/doctor/edit/{id}','DoctorController@edit');
+        Route::get('/doctor/delete/{id}','DoctorController@destroy');
+        Route::get('/doctor/view/{id}','DoctorController@show');
+        //section
+        Route::get('/section/create/{name}','DoctorController@createSection');
+        Route::get('/get/select/section','DoctorController@selectSection');
+
+        //servay
+        //doctor
+        Route::resource('servay','ServayController');
+        Route::get('/servay/edit/{id}','ServayController@edit');
+        Route::get('/servay/delete/{id}','ServayController@destroy');
 
     });
 

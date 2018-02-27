@@ -44,14 +44,24 @@ class StaffController extends Controller
         $this->validate($request,[
             'name'          =>'required',
             'gender'      =>'required',
+            'level'      =>'required',
             'contact'         =>'required',
-            'email'          =>'required|unique:staff'
+            'email'          =>'required|unique:staff',
+            'commission'          =>'required',
+            'baseSalary'      =>'required',
+            'effectDate'         =>'required',
+            'endDate'         =>'required'
         ],[
             'name.required'         =>'Staff name required',
             'gender.required'     =>'Gender required',
+            'level.required'     =>'Level required',
             'contact.required'        =>'Contact required',
             'email.required'        =>'Email required',
-            'email.unique'          =>'Email already existed'
+            'email.unique'          =>'Email already existed',
+            'commission.required'     =>'Commission required',
+            'baseSalary.required'     =>'Base salary required',
+            'effectDate.required'        =>'Effect date required',
+            'endDate.required'        =>'End date required'
         ]);
         $id = Staff::orderBy('id','desc')->value('id');
         $Id = $id+1;
@@ -117,13 +127,23 @@ class StaffController extends Controller
         $this->validate($request,[
             'name'          =>'required',
             'gender'      =>'required',
+            'level'         =>'required',
             'contact'         =>'required',
-            'email'          =>'required'
+            'email'          =>'required',
+            'commission'          =>'required',
+            'baseSalary'      =>'required',
+            'effectDate'         =>'required',
+            'endDate'         =>'required'
         ],[
             'name.required'         =>'Staff name required',
             'gender.required'     =>'Gender required',
+            'level.required'     =>'Level required',
             'contact.required'        =>'Contact required',
-            'email.required'        =>'Email required'
+            'email.required'        =>'Email required',
+            'commission.required'     =>'Commission required',
+            'baseSalary.required'     =>'Base salary required',
+            'effectDate.required'        =>'Effect date required',
+            'endDate.required'        =>'End date required'
         ]);
 
         $staff = Staff::find($id);
