@@ -32,13 +32,6 @@ class FactoryBuilder
     protected $name = 'default';
 
     /**
-     * The database connection on which the model instance should be persisted.
-     *
-     * @var string
-     */
-    protected $connection;
-
-    /**
      * The model states.
      *
      * @var array
@@ -112,19 +105,6 @@ class FactoryBuilder
     }
 
     /**
-     * Set the database connection on which the model instance should be persisted.
-     *
-     * @param  string  $name
-     * @return $this
-     */
-    public function connection($name)
-    {
-        $this->connection = $name;
-
-        return $this;
-    }
-
-    /**
      * Create a model and persist it in the database if requested.
      *
      * @param  array  $attributes
@@ -165,9 +145,7 @@ class FactoryBuilder
     protected function store($results)
     {
         $results->each(function ($model) {
-            if (! isset($this->connection)) {
-                $model->setConnection($model->newQueryWithoutScopes()->getConnection()->getName());
-            }
+            $model->setConnection($model->newQueryWithoutScopes()->getConnection()->getName());
 
             $model->save();
         });
@@ -220,15 +198,9 @@ class FactoryBuilder
      *
      * @param  array  $attributes
      * @return mixed
-     *
-     * @throws \InvalidArgumentException
      */
     protected function getRawAttributes(array $attributes = [])
     {
-        if (! isset($this->definitions[$this->class][$this->name])) {
-            throw new InvalidArgumentException("Unable to locate factory with name [{$this->name}] [{$this->class}].");
-        }
-
         $definition = call_user_func(
             $this->definitions[$this->class][$this->name],
             $this->faker, $attributes
@@ -244,19 +216,19 @@ class FactoryBuilder
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model
+     *
+     * @throws \InvalidArgumentException
      */
     protected function makeInstance(array $attributes = [])
     {
         return Model::unguarded(function () use ($attributes) {
-            $instance = new $this->class(
-                $this->getRawAttributes($attributes)
-            );
-
-            if (isset($this->connection)) {
-                $instance->setConnection($this->connection);
+            if (! isset($this->definitions[$this->class][$this->name])) {
+                throw new InvalidArgumentException("Unable to locate factory with name [{$this->name}] [{$this->class}].");
             }
 
-            return $instance;
+            return new $this->class(
+                $this->getRawAttributes($attributes)
+            );
         });
     }
 
@@ -274,34 +246,13 @@ class FactoryBuilder
                 throw new InvalidArgumentException("Unable to locate [{$state}] state for [{$this->class}].");
             }
 
-            $definition = array_merge(
-                $definition,
-                $this->stateAttributes($state, $attributes)
-            );
+            $definition = array_merge($definition, call_user_func(
+                $this->states[$this->class][$state],
+                $this->faker, $attributes
+            ));
         }
 
         return $definition;
-    }
-
-    /**
-     * Get the state attributes.
-     *
-     * @param  string  $state
-     * @param  array  $attributes
-     * @return array
-     */
-    protected function stateAttributes($state, array $attributes)
-    {
-        $stateAttributes = $this->states[$this->class][$state];
-
-        if (! is_callable($stateAttributes)) {
-            return $stateAttributes;
-        }
-
-        return call_user_func(
-            $stateAttributes,
-            $this->faker, $attributes
-        );
     }
 
     /**
