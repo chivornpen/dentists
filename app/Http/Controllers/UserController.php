@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Position;
 use App\Role;
 use App\User;
+use App\Permission;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class UserController extends Controller
         $role = Role::pluck('name','id');
         $position =Position::where('active',1)->pluck('name','id');
         $user = User::where('active',1)->get();
+        $per = Permission::where('isLock',0)->get();
         return view('admin.users.create',compact('role','position','user'));
     }
 

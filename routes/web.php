@@ -17,14 +17,12 @@
         Route::get('/admin/position/create','PositionController@createPosition');
         Route::post('/admin/position/store','PositionController@store');
         Route::get('/admin/position/delete/{id}','PositionController@deletePosition');
-
         Route::get('/admin/position/edit/{id}','PositionController@edit');
         Route::patch('/admin/position/update/{id}','PositionController@updatePosition');
 
         //user
         Route::get('/admin/user','UserController@create');
         Route::post('/admin/user/stored','UserController@stored');
-
         Route::get('/admin/user/edit/{id}','UserController@edit');
         Route::patch('/admin/user/update/{id}','UserController@update');
         Route::get('/admin/user/view/{id}','UserController@viewUser');
@@ -33,6 +31,17 @@
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
 
+        //Permission
+        Route::get('/admin/permission','PermissionContoller@create');
+        Route::get('/admin/permission/list','PermissionContoller@index');
+
+        Route::get('/admin/permission/on/{id}','PermissionContoller@edit');
+        Route::get('/admin/permission/off/{id}','PermissionContoller@show');
+        //staff
+        Route::resource('staff','StaffController');
+        Route::get('/staff/edit/{id}','StaffController@edit');
+        Route::get('/staff/delete/{id}','StaffController@destroy');
+        Route::get('/staff/view/{id}','StaffController@show');
         //Branch
         Route::resource('/branch','branchController');
         Route::get('/branch/turn/off/{id}','branchController@turnOff'); //turn off branch
@@ -62,8 +71,20 @@
         Route::get('/treatment/deactive/{id}','treatmentController@deactiveTreatment');
         Route::get('/treatment/active/{id}','treatmentController@activeTreatment');
 
+        //doctor
+        Route::resource('doctor','DoctorController');
+        Route::get('/doctor/edit/{id}','DoctorController@edit');
+        Route::get('/doctor/delete/{id}','DoctorController@destroy');
+        Route::get('/doctor/view/{id}','DoctorController@show');
+        //section
+        Route::get('/section/create/{name}','DoctorController@createSection');
+        Route::get('/get/select/section','DoctorController@selectSection');
 
-
+        //servay
+        //doctor
+        Route::resource('servay','ServayController');
+        Route::get('/servay/edit/{id}','ServayController@edit');
+        Route::get('/servay/delete/{id}','ServayController@destroy');
 
     });
 

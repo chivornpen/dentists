@@ -24,10 +24,10 @@
                 <td style="line-height: 50px" class="center">
 
 
-                    <a href="#" onclick='editUser("{{$u->id}}")' style="padding: 5px;" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></a>
-                    <a href="#" onclick='resetPassword("{{$u->id}}")' data-toggle="modal" data-target=".bs-example-modal-sm" style="padding: 5px;"><i class="fa fa-refresh"></i></a>
-                    <a href="#" style="padding: 5px;" onclick='deleteUser("{{$u->id}}")'><i class="fa fa-trash" style="color: red;"></i></a>
-                    <a href="#" onclick='viewUser("{{$u->id}}")' style="padding: 5px;" data-toggle="modal" data-target="#viewUser" style="padding: 5px;"><i class="fa fa-eye" style=""></i></a>
+                    <a href="#" onclick='editUser("{{$u->id}}")' data-toggle="modal" data-target="#editUser"><i class="fa fa-edit icon-edit"></i></a>
+                    <a href="#" onclick='resetPassword("{{$u->id}}")' data-toggle="modal" data-target=".bs-example-modal-sm" style="padding: 2px;"><i class="fa fa-refresh" style="color: #00a65a;"></i></a>
+                    <a href="#" onclick='deleteUser("{{$u->id}}")'><i class="fa fa-trash icon-delete"></i></a>
+                    <a href="#" onclick='viewUser("{{$u->id}}")'  data-toggle="modal" data-target="#viewUser"><i class="fa fa-eye icon-view"></i></a>
 
                 </td>
         </tr>
