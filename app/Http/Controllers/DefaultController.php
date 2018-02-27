@@ -5,13 +5,35 @@ namespace App\Http\Controllers;
 use App\Position;
 use App\Role;
 use App\User;
+use App\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DefaultController extends Controller
 {
     public function index(){
+        $per = Permission::all();
+        if(!count($per)){
+            $permission = new Permission();
+            $permission->description = 'create';
+            $permission->isLock =0;
+            $permission->save();
 
+            $permission = new Permission();
+            $permission->description = 'list';
+            $permission->isLock =0;
+            $permission->save();
+            
+            $permission = new Permission();
+            $permission->description = 'delete';
+            $permission->isLock =0;
+            $permission->save();
+            
+            $permission = new Permission();
+            $permission->description = 'edit';
+            $permission->isLock =0;
+            $permission->save();
+        }
         $role = Role::all();
         if(!count($role)){
 
@@ -49,7 +71,7 @@ class DefaultController extends Controller
            $users->active       =  1;
            $users->role_id      =   1;
            $users->position_id  =   1;
-           $users->name         =   "Administrator";
+           $users->name         =   "admin";
            $users->username     =  "Administrator";
            $users->email        =  "Admin@gmail.com";
            $users->password     =  bcrypt('admin');

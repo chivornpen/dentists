@@ -311,10 +311,14 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
 
     public static $classMap = array (
         'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
+<<<<<<< HEAD
         'App\\Branch' => __DIR__ . '/../..' . '/app/Branch.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Doctor' => __DIR__ . '/../..' . '/app/Doctor.php',
         'App\\Doctorhis' => __DIR__ . '/../..' . '/app/Doctorhis.php',
+=======
+        'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticleController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -329,13 +333,17 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
         'App\\Http\\Controllers\\StaffController' => __DIR__ . '/../..' . '/app/Http/Controllers/StaffController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\branchController' => __DIR__ . '/../..' . '/app/Http/Controllers/branchController.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Checklogin' => __DIR__ . '/../..' . '/app/Http/Middleware/Checklogin.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Permission' => __DIR__ . '/../..' . '/app/Permission.php',
         'App\\Position' => __DIR__ . '/../..' . '/app/Position.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -343,9 +351,12 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
+<<<<<<< HEAD
         'App\\Section' => __DIR__ . '/../..' . '/app/Section.php',
         'App\\Servay' => __DIR__ . '/../..' . '/app/Servay.php',
         'App\\Staff' => __DIR__ . '/../..' . '/app/Staff.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
@@ -360,15 +371,23 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_12_184631_create_articles_table.php',
+<<<<<<< HEAD
         'CreateBranchesTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_14_081053_create_branches_table.php',
         'CreateDoctorhisTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_22_142850_create_doctorhis_table.php',
         'CreateDoctorsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_22_132718_create_doctors_table.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreatePermissionUserTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_22_090334_create_permission_user_table.php',
+        'CreatePermissionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_21_231742_create_permissions_table.php',
         'CreatePositionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_22_175734_create_positions_table.php',
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_22_175923_create_roles_table.php',
+<<<<<<< HEAD
         'CreateSectionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_22_154952_create_sections_table.php',
         'CreateServaysTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_26_143347_create_servays_table.php',
         'CreateStaffTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_14_081322_create_staff_table.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

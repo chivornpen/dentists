@@ -7,10 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Article' => $baseDir . '/app/Article.php',
+<<<<<<< HEAD
     'App\\Branch' => $baseDir . '/app/Branch.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Doctor' => $baseDir . '/app/Doctor.php',
     'App\\Doctorhis' => $baseDir . '/app/Doctorhis.php',
+=======
+    'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\ArticleController' => $baseDir . '/app/Http/Controllers/ArticleController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -25,13 +29,17 @@ return array(
     'App\\Http\\Controllers\\RoleController' => $baseDir . '/app/Http/Controllers/RoleController.php',
     'App\\Http\\Controllers\\StaffController' => $baseDir . '/app/Http/Controllers/StaffController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\branchController' => $baseDir . '/app/Http/Controllers/branchController.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Checklogin' => $baseDir . '/app/Http/Middleware/Checklogin.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Permission' => $baseDir . '/app/Permission.php',
     'App\\Position' => $baseDir . '/app/Position.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
@@ -39,9 +47,12 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Role' => $baseDir . '/app/Role.php',
+<<<<<<< HEAD
     'App\\Section' => $baseDir . '/app/Section.php',
     'App\\Servay' => $baseDir . '/app/Servay.php',
     'App\\Staff' => $baseDir . '/app/Staff.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
     'App\\User' => $baseDir . '/app/User.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
@@ -56,15 +67,23 @@ return array(
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
     'CreateArticlesTable' => $baseDir . '/database/migrations/2017_12_12_184631_create_articles_table.php',
+<<<<<<< HEAD
     'CreateBranchesTable' => $baseDir . '/database/migrations/2018_02_14_081053_create_branches_table.php',
     'CreateDoctorhisTable' => $baseDir . '/database/migrations/2018_02_22_142850_create_doctorhis_table.php',
     'CreateDoctorsTable' => $baseDir . '/database/migrations/2018_02_22_132718_create_doctors_table.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePermissionUserTable' => $baseDir . '/database/migrations/2018_02_22_090334_create_permission_user_table.php',
+    'CreatePermissionsTable' => $baseDir . '/database/migrations/2018_02_21_231742_create_permissions_table.php',
     'CreatePositionsTable' => $baseDir . '/database/migrations/2017_11_22_175734_create_positions_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2017_11_22_175923_create_roles_table.php',
+<<<<<<< HEAD
     'CreateSectionsTable' => $baseDir . '/database/migrations/2018_02_22_154952_create_sections_table.php',
     'CreateServaysTable' => $baseDir . '/database/migrations/2018_02_26_143347_create_servays_table.php',
     'CreateStaffTable' => $baseDir . '/database/migrations/2018_02_14_081322_create_staff_table.php',
+=======
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

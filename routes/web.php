@@ -31,6 +31,14 @@
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
 
+<<<<<<< HEAD
+        //Permission
+        Route::get('/admin/permission','PermissionContoller@create');
+        Route::get('/admin/permission/list','PermissionContoller@index');
+
+        Route::get('/admin/permission/on/{id}','PermissionContoller@edit');
+        Route::get('/admin/permission/off/{id}','PermissionContoller@show');
+=======
         //staff
         Route::resource('staff','StaffController');
         Route::get('/staff/edit/{id}','StaffController@edit');
@@ -39,6 +47,7 @@
         //Branch
         Route::resource('/branch','branchController');
 
+<<<<<<< HEAD
         //doctor
         Route::resource('doctor','DoctorController');
         Route::get('/doctor/edit/{id}','DoctorController@edit');
@@ -53,6 +62,9 @@
         Route::resource('servay','ServayController');
         Route::get('/servay/edit/{id}','ServayController@edit');
         Route::get('/servay/delete/{id}','ServayController@destroy');
+=======
+>>>>>>> 7005f1e8f37c9841dbb77964755ec2850051722c
+>>>>>>> 8c02323beeafbd92fe553ea0994fb1797289328d
 
     });
 
