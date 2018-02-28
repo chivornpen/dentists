@@ -62,7 +62,7 @@ class DefaultController extends Controller
             return view('admin.dashboard');
         }
 //
-//        return view('welcome');
+        return view('welcome');
     }
 
     public function AdminPanel(){

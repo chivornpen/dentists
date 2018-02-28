@@ -4,7 +4,7 @@
     <br>
     <div class="container-fluid">
         <div class="panel panel-default">
-            <div class="panel-heading bokor">
+            <div class="panel-heading {{\Illuminate\Support\Facades\Lang::locale()==='kh' ? 'kh-moul' : 'time-roman'  }}">
                 {{trans('label.language')}}
             </div>
             <div class="panel-body">
@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="bokor">{{trans('label.language_code')}}</label>
+                                    <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_code')}}</span>
                                     {!! Form::text('code',null,['class'=>'edit-form-control','id'=>'code','required'=>'true'])!!}
                                     @if($errors->has('code'))
                                         <span class="text-danger">
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="bokor">{{trans('label.language_name')}}</label>
+                                    <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_name')}}</span>
                                     {!! Form::text('name',null,['class'=>'edit-form-control','required'=>'true'])!!}
                                     @if($errors->has('name'))
                                         <span class="text-danger">
