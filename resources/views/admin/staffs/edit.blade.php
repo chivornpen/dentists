@@ -128,7 +128,7 @@
         <div class="col-lg-3">
             <div class="form-group">
                 {!! Form::label('branch_id','Branch Name',['class'=>'edit-label']) !!}
-                {!! Form::select('branch_id',$branch,null,['class'=>'edit-form-control text-blue','placeholder'=>'Please select one' ]) !!}
+                {!! Form::select('branch_id',$branch,null,['class'=>'edit-form-control height-35px text-blue','placeholder'=>'Please select one' ]) !!}
                 @if($errors->has('branch_id'))
                     <span class="text-danger">{{$errors->first('branch_id')}}</span>
                 @endif

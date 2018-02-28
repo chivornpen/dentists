@@ -13,12 +13,9 @@
                     <li><a href="{{url('/admin/permission')}}">&nbsp;&nbsp;&nbsp;&nbsp; permission</a></li><li class="treeview">
                 </ul>
 
-<<<<<<< HEAD
             <li class="treeview"><a href="#"><i class="fa fa-address-card" aria-hidden="true"></i> Positions <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-=======
             </li>
             <li class="treeview"><a href="#"><i class="fa fa-users" aria-hidden="true"></i> Positions <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
->>>>>>> c9a3a8c1fcc4153d8a2feebc0d7c37b0d39f7bbc
                 <ul class="treeview-menu">
                     <li><a href="{{url('/admin/position/create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
                 </ul>
@@ -42,7 +39,7 @@
                 </ul>
             </li>
 
-            <li class="treeview"><a href="#"><i class="fa fa-user-md"></i> Servay <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+            <li class="treeview"><a href="#"><i class="fa fa-stethoscope"></i> Servay <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('servay.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
                 </ul>
@@ -61,6 +58,12 @@
                     <li><a href="{{route('view-treatment')}}">&nbsp;&nbsp;&nbsp;&nbsp; Views</a></li><li class="treeview">
                 </ul>
 
+            </li>
+
+            <li class="treeview"><a href="#"><i class="fa fa-medkit" aria-hidden="true"></i> Medical <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('treatment.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
+                </ul>
             </li>
 
         </ul>

@@ -77,7 +77,7 @@
                                 <div class="form-group">
                                     {!! Form::label('section_id','&nbsp;Section',['class'=>'edit-label required']) !!}
                                     <div class="input-group">
-                                        {!! Form::select('section_id',$section,null,['class'=>'form-control section_id','placeholder'=>'---Please select one---', 'id'=>'section_id','required'=>'true']) !!}
+                                        {!! Form::select('section_id',$section,null,['class'=>'form-control section_id text-blue','placeholder'=>'---Please select one---', 'id'=>'section_id','required'=>'true','style'=>'border-bottom-left-radius: 5px; border-top-left-radius: 5px;']) !!}
                                         <span class="input-group-btn">
                                                 <button class="btn btn-secondary" data-toggle="modal" data-target="#section" onclick="addSec()" type="button"><i class="fa fa-plus fa-fw" style="color: #0b93d5"></i></button>
                                         </span>
@@ -152,7 +152,7 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     {!! Form::label('branch_id','Branch Name',['class'=>'edit-label']) !!}
-                                    {!! Form::select('branch_id',$branch,null,['class'=>'edit-form-control text-blue','placeholder'=>'Please select one' ]) !!}
+                                    {!! Form::select('branch_id',$branch,null,['class'=>'edit-form-control height-35px text-blue','placeholder'=>'Please select one' ]) !!}
                                     @if($errors->has('branch_id'))
                                         <span class="text-danger">{{$errors->first('branch_id')}}</span>
                                     @endif
