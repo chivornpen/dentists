@@ -1,6 +1,7 @@
 @if($language->count())
+<label class="{{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">{{trans('label.table_language')}}</label>
 <div class="table-responsive">
-    <table id="example1" class="table table-bordered table-striped table-hover">
+    <table id="example1" class="table table-bordered table-striped table-hover {{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">
         <thead>
         <tr>
             <th class="center">{{trans('label.No')}}</th>
@@ -29,5 +30,5 @@
     </table>
 </div>
 @else
-    <h4>No found data!</h4>
+    <h4 class="center text-warning" style="line-height: 50px">No found data!</h4>
 @endif

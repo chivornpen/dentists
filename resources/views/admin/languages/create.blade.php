@@ -32,21 +32,20 @@
                                     {!! Form::text('name',null,['class'=>'edit-form-control','required'=>'true'])!!}
                                     @if($errors->has('name'))
                                         <span class="text-danger">
-                                                    {{$errors->first('name')}}
-                                                </span>
+                                             {{$errors->first('name')}}
+                                        </span>
                                     @endif
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            {!! Form::submit(trans('label.create'),['class'=>'btn btn-success btn-sm']) !!}
-                            {!! Form::reset(trans('label.cancel'),['class'=>'btn btn-warning btn-sm']) !!}
+                            {!! Form::submit(trans('label.create'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-success btn-sm':'arial btn btn-success btn-sm']) !!}
+                            {!! Form::reset(trans('label.cancel'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-danger btn-sm':'arial btn btn-danger btn-sm']) !!}
                         </div>
 
                     </div>
                     {!! Form::close() !!}
                     <div class="col-md-8">
-                        <label class="bokor">{{trans('label.table_language')}}</label>
                         <div id="viewLanguage">
 
                         </div>

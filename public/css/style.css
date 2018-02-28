@@ -90,11 +90,6 @@
 .text-orange{
     color: #ec760f;
 }
-
-<<<<<<< HEAD
-.bokor{
-    font-family: "Khmer OS Freehand",Serif;
-=======
 .kh-os{
     font-size: 12px;
     font-family: "Khmer OS Content", "Khmer OS ",Serif;
@@ -112,7 +107,6 @@
 }
 .kh-moul{
     font-family: "Khmer OS Moul Light",Serif;
->>>>>>> 0f634559b389a9e9a09c129250861d2989daebe5
 }
 .cursor-pointer{
     cursor: pointer;
