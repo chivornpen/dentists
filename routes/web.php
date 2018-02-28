@@ -46,6 +46,7 @@
         Route::resource('/language','LanguageController');
         Route::get('/language/edit/{id}','LanguageController@edit');
         Route::patch('/language/update/{id}','LanguageController@update');
+        Route::get('/language/delete/{id}','LanguageController@destroy');
 
 
 

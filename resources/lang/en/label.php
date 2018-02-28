@@ -8,11 +8,13 @@
         'language' => 'Language',
         'language_code' => 'Language Code',
         'language_name' => 'Language Name',
-        'language_list' => 'Language List',
+        'table_language' => 'Table Language',
         'No' => 'No',
         'created_by' => 'Created By',
         'action' => 'Action',
-        'edit' => 'Edit'
+        'edit' => 'Edit',
+        'create' => 'Create',
+        'cancel' => 'Cancel'
     ]
 
 

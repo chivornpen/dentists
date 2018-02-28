@@ -1,6 +1,6 @@
 @if($language->count())
 <div class="table-responsive">
-    <table id="example1" class="table table-bordered table-striped bokor">
+    <table id="example1" class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
             <th class="center">{{trans('label.No')}}</th>
@@ -20,7 +20,7 @@
                 <td>{{\App\User::where('id',$p->user_id)->value('name')}}</td>
                 <td class="center">
                     <a href="#" onclick="updatePos('{{$p->id}}')" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-edit icon-edit"></i> </a>
-                    <a href="{{url('/admin/position/delete',[$p->id])}}"><i class="fa fa-trash icon-delete"></i></a>
+                    <a href="#" onclick="deleteLanguage('{{$p->id}}')"><i class="fa fa-trash icon-delete"></i></a>
 
                 </td>
             </tr>

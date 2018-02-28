@@ -39,24 +39,16 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            {!! Form::submit('Create',['class'=>'btn btn-success btn-sm']) !!}
-                            {!! Form::reset('Reset',['class'=>'btn btn-warning btn-sm']) !!}
+                            {!! Form::submit(trans('label.create'),['class'=>'btn btn-success btn-sm']) !!}
+                            {!! Form::reset(trans('label.cancel'),['class'=>'btn btn-warning btn-sm']) !!}
                         </div>
 
                     </div>
                     {!! Form::close() !!}
                     <div class="col-md-8">
-                        <div class="container-fluid">
-                            <div class="panel panel-default">
-                                <div class="panel-heading bokor">
-                                    {{trans('label.language_list')}}
-                                </div>
-                                <div class="panel-body">
-                                    <div id="viewLanguage">
+                        <label class="bokor">{{trans('label.table_language')}}</label>
+                        <div id="viewLanguage">
 
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -126,6 +118,33 @@
                 error:function (error) {
                     console.log(error);
                 }
+            });
+        }
+
+        function deleteLanguage(id) {
+            swal({
+                title: "Are you sure?",
+                text: "Are you sure that you want to delete this language ?",
+                type: "warning",
+                showCancelButton:true,
+                closeOnConfirm: false,
+                confirmButtonText: "Yes",
+                confirmButtonColor: "#ec6c62"
+            }, function() {
+                $.ajax({
+                    url : "{{url('/language/delete')}}"+"/"+id,
+                    type: "get",
+                    dataType: 'html'
+                })
+                    .done(function(data) {
+                        swal("Deleted!", "Your file was successfully deleted!", "success");
+                        $(document).ready(function () {
+                            getViewLanguage();
+                        });
+                    })
+                    .error(function(data) {
+                        swal("Oops", "We couldn't connect to the server!", "error");
+                    });
             });
         }
     </script>

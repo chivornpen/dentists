@@ -91,6 +91,9 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lang = Language::find($id);
+        $lang->active = 0;
+        $lang->user_id = Auth::user()->id;
+        $lang->save();
     }
 }

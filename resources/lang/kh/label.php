@@ -8,11 +8,13 @@
         'language' => 'ភាសា',
         'language_code' => 'កូដភាសា',
         'language_name' => 'ឈ្មោះភាសា',
-        'language_list' => 'បញ្ជីភាសា',
+        'table_language' => 'តារាងភាសា',
         'No' => 'ល.រ',
         'created_by' => 'បង្កើតដោយ',
         'action' => 'សកម្មភាព',
-        'edit' => 'កែប្រែ'
+        'edit' => 'កែប្រែ',
+        'create' => 'បង្កើត',
+        'cancel' => 'បោះបង់'
     ]
 
 
