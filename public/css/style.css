@@ -4,6 +4,7 @@
     border: 1px solid #ddd;
     font-family: "Times New Roman", serif;
     margin-bottom: 10px;
+    margin-top: 4px;
     /*box-shadow: 0 0px 1px 0px #9d9d9d;*/
     width: 100%;
 
@@ -90,8 +91,23 @@
     color: #ec760f;
 }
 
-.bokor{
-    font-family: "Khmer OS Bokor",Serif;
+.kh-os{
+    font-size: 12px;
+    font-family: "Khmer OS Content", "Khmer OS ",Serif;
+    font-weight: bold;
+}
+.arial{
+    font-size: 12px;
+    font-family: Arial,Serif;
+    font-weight: bold;
+}
+.time-roman{
+    font-size: 17px;
+    font-family: "Times New Roman",Serif;
+    font-weight: bold;
+}
+.kh-moul{
+    font-family: "Khmer OS Moul Light",Serif;
 }
 .cursor-pointer{
     cursor: pointer;

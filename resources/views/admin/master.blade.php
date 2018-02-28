@@ -98,7 +98,7 @@
 
                     </li> -->
                     <li class="dropdown tasks-menu">
-                        {!! Form::select('locale',['en'=>'English','kh'=>'ខ្មែរ'],Lang::locale(),['id'=>'locale','class'=>'margin-top-23 bokor​']) !!}
+                        {!! Form::select('locale',['en'=>'English','kh'=>'ខ្មែរ'],Lang::locale(),['id'=>'locale','class'=>'margin-top-23 kh-os']) !!}
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
@@ -106,7 +106,7 @@
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
-                            Log Out
+                            <span class="{{Lang::locale()==='kh'? 'kh-os': 'arial'}}">{{trans('label.logout')}}</span>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
