@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Language;
 use Illuminate\Http\Request;
-use App\Permission;
-class PermissionContoller extends Controller
+use Illuminate\Support\Facades\Auth;
+
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,8 @@ class PermissionContoller extends Controller
      */
     public function index()
     {
-        $per = Permission::all();
-        return view('admin.permission.index',compact('per'));
+        $language = Language::where('active',1)->get();
+        return view('admin.languages.index',compact('language'));
     }
 
     /**
@@ -24,8 +26,8 @@ class PermissionContoller extends Controller
      */
     public function create()
     {
-        $per = Permission::where('isLock',0)->get();
-        return view('admin.permission.viewPer');
+
+        return view('admin.languages.create');
     }
 
     /**
@@ -36,7 +38,14 @@ class PermissionContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){
+            $lang = new Language();
+            $lang->code    =  trim($request->code);
+            $lang->name    =  trim($request->name);
+            $lang->user_id   = Auth::user()->id;
+            $lang->active   = 1;
+            $lang->save();
+        }
     }
 
     /**
@@ -47,9 +56,7 @@ class PermissionContoller extends Controller
      */
     public function show($id)
     {
-        $per = Permission::find($id);
-        $per->isLock=0;
-        $per->save();
+        //
     }
 
     /**
@@ -60,9 +67,8 @@ class PermissionContoller extends Controller
      */
     public function edit($id)
     {
-        $per = Permission::find($id);
-        $per->isLock=1;
-        $per->save();
+        $lang = Language::find($id);
+        return view('admin.languages.edit',compact('lang'));
     }
 
     /**

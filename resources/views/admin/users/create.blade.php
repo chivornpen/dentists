@@ -11,14 +11,14 @@
                                         <div class="col-md-10">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    {!! Form::label('name','&nbsp;User Name',['class'=>'edit-label']) !!}
+                                                    {!! Form::label('name','&nbsp;Name',['class'=>'edit-label']) !!}
                                                     {!! Form::text('name',null,['class'=>'edit-form-control','placeholder'=>'Name', 'required'=>true ]) !!}
                                                     @if($errors->has('name'))
                                                         <span class="text-danger">{{$errors->first('name')}}</span>
                                                     @endif
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    {!! Form::label('user_name','&nbsp;Diplay Name',['class'=>'edit-label']) !!}
+                                                    {!! Form::label('user_name','&nbsp;User Name',['class'=>'edit-label']) !!}
                                                     {!! Form::text('username',null,['class'=>'edit-form-control','placeholder'=>'User Name', 'required'=>true ]) !!}
                                                     @if($errors->has('username'))
                                                         <span class="text-danger">{{$errors->first('username')}}</span>
@@ -119,7 +119,7 @@
                                     <!-- /.box-body -->
                             </div>
                             <!-- Modal -->
-                            <div id="editUser" class="modal fade" role="dialog">
+                            <div id="myModal" class="modal fade" role="dialog">
                                 <div id="editUser">
 
                                 </div>

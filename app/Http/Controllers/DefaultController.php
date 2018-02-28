@@ -5,38 +5,17 @@ namespace App\Http\Controllers;
 use App\Position;
 use App\Role;
 use App\User;
-use App\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Session;
 
 class DefaultController extends Controller
 {
     public function index(){
-        $per = Permission::all();
-        if(!count($per)){
-            $permission = new Permission();
-            $permission->description = 'create';
-            $permission->isLock =0;
-            $permission->save();
-
-            $permission = new Permission();
-            $permission->description = 'list';
-            $permission->isLock =0;
-            $permission->save();
-            
-            $permission = new Permission();
-            $permission->description = 'delete';
-            $permission->isLock =0;
-            $permission->save();
-            
-            $permission = new Permission();
-            $permission->description = 'edit';
-            $permission->isLock =0;
-            $permission->save();
-        }
+        
         $role = Role::all();
         if(!count($role)){
-
             $Role = new Role();
             $Role->name = "administrator";
             $Role->description="Administrator";
@@ -71,7 +50,7 @@ class DefaultController extends Controller
            $users->active       =  1;
            $users->role_id      =   1;
            $users->position_id  =   1;
-           $users->name         =   "admin";
+           $users->name         =   "Administrator";
            $users->username     =  "Administrator";
            $users->email        =  "Admin@gmail.com";
            $users->password     =  bcrypt('admin');
@@ -80,14 +59,21 @@ class DefaultController extends Controller
 
         }
         if(Auth::check()) {
-
             return view('admin.dashboard');
         }
-        return view('welcome');
+//
+//        return view('welcome');
     }
 
     public function AdminPanel(){
 
         return view(' admin.dashboard');
     }
+
+
+    public function locale(Request $request, $lang){
+        $request->session()->put('locale',$lang);
+    }
+
+
 }

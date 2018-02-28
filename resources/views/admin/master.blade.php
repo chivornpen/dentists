@@ -70,16 +70,16 @@
                     <!-- Messages: style can be found in dropdown.less-->
 
 
-                    <li class="dropdown messages-menu">
+                    <!-- <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
                             <span class="label label-success">4</span>
                         </a>
-                    </li>
+                    </li> -->
                     <!-- Notifications: style can be found in dropdown.less -->
 
 
-                    <li class="dropdown notifications-menu">
+                   <!--  <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell-o"></i>
                             <span class="label label-warning">10</span>
@@ -88,7 +88,7 @@
                     </li>
 
 
-                    <!-- Tasks: style can be found in dropdown.less -->
+                    Tasks: style can be found in dropdown.less
 
                     <li class="dropdown tasks-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -96,6 +96,9 @@
                             <span class="label label-danger">9</span>
                         </a>
 
+                    </li> -->
+                    <li class="dropdown tasks-menu">
+                        {!! Form::select('locale',['en'=>'English','kh'=>'ខ្មែរ'],Lang::locale(),['id'=>'locale','class'=>'margin-top-23 bokor​']) !!}
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
@@ -213,16 +216,21 @@
 <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 
-<!-- <script>
-        var user = {!! json_encode((array)auth()->user()) !!};
-        console.log(user)
-        // window.Laravel = {
-        //     csrfToken: '{{csrf_token()}}',
-        //     auth: {
-        //         user: ""
-        //     }
-        // }
-</script> -->
+
+<script type="text/javascript">
+    $('#locale').on('change',function () {
+        var locale= $('#locale').val();
+        $.ajax({
+            type : 'get',
+            url  : "{{url('/admin/locale')}}"+"/"+locale,
+            success:function(){
+                window.location.reload();
+            }
+        });
+    });
+</script>
+
+
 
 </body>
 </html>
