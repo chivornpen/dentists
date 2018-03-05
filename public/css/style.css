@@ -1,4 +1,5 @@
 .edit-form-control{
+    outline: none;
     border-radius: 7px;
     padding: 6px 10px;
     border: 1px solid #ddd;
@@ -90,10 +91,6 @@
 .text-orange{
     color: #ec760f;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> d19e403275c1d28e66c147758a0733ccf718b752
 .kh-os{
     font-size: 12px;
     font-family: "Khmer OS Content", "Khmer OS ",Serif;
@@ -110,7 +107,7 @@
     font-weight: bold;
 }
 .kh-moul{
-    font-family: "Khmer OS Moul Light",Serif;
+    font-family: "Khmer OS Muol Light",Serif;
 }
 .cursor-pointer{
     cursor: pointer;

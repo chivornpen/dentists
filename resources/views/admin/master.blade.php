@@ -97,23 +97,50 @@
                         </a>
 
                     </li> -->
+
                     <li class="dropdown tasks-menu">
                         {!! Form::select('locale',['en'=>'English','kh'=>'ខ្មែរ'],Lang::locale(),['id'=>'locale','class'=>'margin-top-23 kh-os']) !!}
                     </li>
-                    <!-- User Account: style can be found in dropdown.less -->
+
+                    {{--start user log out--}}
+                <!-- start User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                            <span class="{{Lang::locale()==='kh'? 'kh-os': 'arial'}}">{{trans('label.logout')}}</span>
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- The user image in the navbar-->
+                            <img src="/photo/{{Auth::user()->photo}}" class="user-image" alt="User Image" style="background: white;border:2px solid green;padding:1px;">
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">{!! Auth::user()->username !!}</span>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img src="/photo/{{Auth::user()->photo}}" class="img-circle" alt="User Image" style="background: white;border:2px solid blue;padding:1px;">
 
-
+                                <p>
+                                    {!! Auth::user()->username !!} - {!! Auth::user()->position->name !!}
+                                    <small>{!! Auth::user()->email !!} </small>
+                                </p>
+                            </li>
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" onclick='viewUser("{!! Auth::user()->id !!}")' class="btn btn-default btn-flat" data-toggle="modal" data-target="#viewUser" style="border-radius: 5px;"><i class="fa fa-eye"></i> <span class="{{Lang::locale()==='kh'? 'kh-os': 'arial'}}">{{trans('label.profile')}}</span></a>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();" style="border-radius: 5px;"><i class="fa fa-sign-out"></i>
+                                        <span class="{{Lang::locale()==='kh'? 'kh-os': 'arial'}}">{{trans('label.logout')}}</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
+                    {{--end user log out--}}
+
                 </ul>
             </div>
 
@@ -123,7 +150,7 @@
     <aside class="main-sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid #FF7E00;padding:1px;" alt="User Image">
+                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 46px" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{!! Auth::user()->username !!}</p>
@@ -157,7 +184,12 @@
     </aside>
 
     <div class="content-wrapper">
+        <!-- Modal -->
+        <div id="viewUser" class="modal fade" role="dialog">
+            <div id="viewUser">
 
+            </div>
+        </div>
         @yield('content')
 
         {{--@yield('datetimepicker')--}}
@@ -228,6 +260,21 @@
             }
         });
     });
+
+    function viewUser(id) {
+        $.ajax({
+            type: 'get',
+            url:"{{url('/admin/user/view')}}"+"/"+id,
+            dataType: 'html',
+            success:function (data) {
+                $('#viewUser').html(data);
+            },
+            error:function (error) {
+                console.log(error);
+            }
+
+        });
+    }
 </script>
 
 

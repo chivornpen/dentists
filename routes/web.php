@@ -48,6 +48,12 @@
         Route::patch('/language/update/{id}','LanguageController@update');
         Route::get('/language/delete/{id}','LanguageController@destroy');
 
+        //category
+        Route::resource('/category','CategoryController');
+        Route::get('/category/edit/{id}','CategoryController@edit');
+        Route::patch('/category/update/{id}','CategoryController@update');
+        Route::get('/category/delete/{id}','CategoryController@destroy');
+
 
 
 

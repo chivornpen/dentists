@@ -17,11 +17,26 @@
         'cancel' => 'Cancel',
         'logout'            =>'Log Out',
         'article'           => 'Article',
-        'view'              =>'View'
-<<<<<<< HEAD
-
-=======
->>>>>>> d19e403275c1d28e66c147758a0733ccf718b752
+        'view'              =>'View',
+        'update' => 'Update',
+        'close' => 'Close',
+        'reset' => 'Clear',
+        'placeholder_code' => 'en',
+        'profile' => 'Profile',
+        'placeholder_name' => 'English',
+        'are_you_sure' => 'Are you sure?',
+        'are_you_sure_delete' => 'Are you sure that you want to delete this file?',
+        'yes' => 'Yes',
+        'no' => 'No',
+        'ok' => 'Ok',
+        'deleted' => 'Deleted!',
+        'successfully_deleted' => 'Your file was successfully deleted!',
+        'data_not_found' => 'Data not found ...!',
+        'category' => 'Category',
+        'date' => 'Date',
+        'choose_item' => 'Choose one',
+        'name' => 'Name',
+        'parent' => 'Parent'
     ]
 
 

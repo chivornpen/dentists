@@ -16,7 +16,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_code')}}</span>
-                                    {!! Form::text('code',null,['class'=>'edit-form-control','id'=>'code','required'=>'true'])!!}
+                                    {!! Form::text('code',null,['class'=>'edit-form-control text-blue','id'=>'code','required'=>'true','placeholder'=>trans('label.placeholder_code')])!!}
                                     @if($errors->has('code'))
                                         <span class="text-danger">
                                             {{$errors->first('code')}}
@@ -29,7 +29,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_name')}}</span>
-                                    {!! Form::text('name',null,['class'=>'edit-form-control','required'=>'true'])!!}
+                                    {!! Form::text('name',null,['class'=>'edit-form-control text-blue','required'=>'true','placeholder'=>trans('label.placeholder_name')])!!}
                                     @if($errors->has('name'))
                                         <span class="text-danger">
                                              {{$errors->first('name')}}
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::submit(trans('label.create'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-success btn-sm':'arial btn btn-success btn-sm']) !!}
-                            {!! Form::reset(trans('label.cancel'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-danger btn-sm':'arial btn btn-danger btn-sm']) !!}
+                            {!! Form::reset(trans('label.reset'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-warning btn-sm':'arial btn btn-warning btn-sm']) !!}
                         </div>
 
                     </div>
@@ -97,7 +97,7 @@
                     beforeSend:function () {
                     },
                     success:function (data) {
-                        alert(data);
+                        $('#language')[0].reset();
                         $(document).ready(function () {
                             getViewLanguage();
                         });
@@ -122,12 +122,13 @@
 
         function deleteLanguage(id) {
             swal({
-                title: "Are you sure?",
-                text: "Are you sure that you want to delete this language ?",
+                title: "{{trans('label.are_you_sure')}}",
+                text: "{{trans('label.are_you_sure_delete')}}",
                 type: "warning",
                 showCancelButton:true,
                 closeOnConfirm: false,
-                confirmButtonText: "Yes",
+                cancelButtonText: "{{trans('label.no')}}",
+                confirmButtonText: "{{trans('label.yes')}}",
                 confirmButtonColor: "#ec6c62"
             }, function() {
                 $.ajax({

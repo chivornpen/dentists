@@ -19,10 +19,29 @@
         'language_list' => 'បញ្ជីភាសា',
         'article'       => 'អត្តបទ',
         'view'          => 'ទិដ្ឋភាព',
-<<<<<<< HEAD
+        'update' => 'កែប្រែ',
+        'close' => 'បិទ',
+        'reset' => 'ជម្រះ',
+        'placeholder_language_code' => 'kh',
+        'placeholder_language_name' => 'ខ្មែរ',
+        'profile' => 'ទម្រង់',
+        'are_you_sure' => 'តើ​អ្នក​ពឹត​ប្រាកដហើយ​ឬ?',
+        'are_you_sure_delete' => 'តើអ្នកប្រាកដថាអ្នកចង់លុបឯកសារនេះមែនទេ?',
+        'yes' => 'បាទ',
+        'no' => 'ទេ',
+        'ok' => 'យល់ព្រម',
+        'deleted' => 'បានលុប!!',
+        'successfully_deleted' => 'ឯកសាររបស់អ្នកត្រូវបានលុបដោយជោគជ័យ!',
+        'data_not_found' => 'មិនមានទិន្នន័យ ...!',
+        'category' => 'ប្រភេទ',
+        'date' => 'កាលបរិច្ឆេទ',
+        'choose_item' => 'ជ្រើសរើសមួយ​​​​​​​​​​​​',
+        'name' => 'ឈ្មោះ',
+        'parent' => 'Parent'
 
-=======
->>>>>>> d19e403275c1d28e66c147758a0733ccf718b752
+
+
+
     ]
 
 
