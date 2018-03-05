@@ -17,11 +17,8 @@
         'cancel' => 'Cancel',
         'logout'            =>'Log Out',
         'article'           => 'Article',
-        'view'              =>'View'
-<<<<<<< HEAD
-
-=======
->>>>>>> d19e403275c1d28e66c147758a0733ccf718b752
+        'view'              =>'View',
+        'categoryproduct'   =>'Category Product'
     ]
 
 

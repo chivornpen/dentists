@@ -48,6 +48,9 @@
         Route::patch('/language/update/{id}','LanguageController@update');
         Route::get('/language/delete/{id}','LanguageController@destroy');
 
+        //category product
+        Route::resource('/categoryproduct','categoryProductController');
+
 
 
 
