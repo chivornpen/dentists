@@ -1,4 +1,5 @@
 .edit-form-control{
+    outline: none;
     border-radius: 7px;
     padding: 6px 10px;
     border: 1px solid #ddd;
@@ -106,7 +107,7 @@
     font-weight: bold;
 }
 .kh-moul{
-    font-family: "Khmer OS Moul Light",Serif;
+    font-family: "Khmer OS Muol Light",Serif;
 }
 .cursor-pointer{
     cursor: pointer;

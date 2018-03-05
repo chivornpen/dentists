@@ -1,5 +1,5 @@
-@if($language->count())
-<label class="{{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">{{trans('label.table_language')}}</label>
+@if($category->count())
+<label class="{{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">{{trans('label.table_category')}}</label>
 <div class="table-responsive">
     <table id="example1" class="table table-bordered table-striped table-hover {{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">
         <thead>
@@ -13,15 +13,15 @@
         </thead>
         <tbody>
         <?php $i=1;?>
-        @foreach($language as $p)
+        @foreach($category as $c)
             <tr>
                 <td class="center">{{$i++}}</td>
-                <td>{{$p->code}}</td>
-                <td>{{$p->name}}</td>
-                <td>{{\App\User::where('id',$p->user_id)->value('name')}}</td>
+                <td>{{$c->code}}</td>
+                <td>{{$pc->name}}</td>
+                <td>{{\App\User::where('id',$c->user_id)->value('name')}}</td>
                 <td class="center">
-                    <a href="#" onclick="updatePos('{{$p->id}}')" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-edit icon-edit"></i> </a>
-                    <a href="#" onclick="deleteLanguage('{{$p->id}}')"><i class="fa fa-trash icon-delete"></i></a>
+                    <a href="#" onclick="updatePos('{{$c->id}}')" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-edit icon-edit"></i> </a>
+                    <a href="#" onclick="deleteLanguage('{{$c->id}}')"><i class="fa fa-trash icon-delete"></i></a>
 
                 </td>
             </tr>
