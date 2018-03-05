@@ -17,7 +17,6 @@
         'cancel' => 'Cancel',
         'logout'            =>'Log Out',
         'article'           => 'Article',
-<<<<<<< HEAD
         'view'              =>'View',
         'update' => 'Update',
         'close' => 'Close',
@@ -38,9 +37,7 @@
         'choose_item' => 'Choose one',
         'name' => 'Name',
         'parent' => 'Parent'
-=======
         'view'              =>'View'
->>>>>>> 6230acf475a8c033c63d2e1b736821211a31cd1b
     ]
 
 
