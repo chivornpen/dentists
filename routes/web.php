@@ -48,14 +48,22 @@
         Route::patch('/language/update/{id}','LanguageController@update');
         Route::get('/language/delete/{id}','LanguageController@destroy');
 
+<<<<<<< HEAD
+        //category product
+        Route::resource('/categoryproduct','categoryProductController');
+=======
         //category
         Route::resource('/category','CategoryController');
         Route::get('/category/edit/{id}','CategoryController@edit');
         Route::patch('/category/update/{id}','CategoryController@update');
         Route::get('/category/delete/{id}','CategoryController@destroy');
+<<<<<<< HEAD
         Route::get('/get/select/parent','CategoryController@getSelectParent');
         Route::get('/get/select/language/{id}','CategoryController@getSelectLanguage');
 
+=======
+>>>>>>> 0a0701122763d90b2a5e3e77c3ae32669dceb75c
+>>>>>>> d9ceef286dafd5da8f72d458c39a6a32b901f7ec
 
 
 

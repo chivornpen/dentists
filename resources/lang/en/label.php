@@ -18,6 +18,9 @@
         'logout'            =>'Log Out',
         'article'           => 'Article',
         'view'              =>'View',
+<<<<<<< HEAD
+        'categoryproduct'   =>'Category Product'
+=======
         'update' => 'Update',
         'close' => 'Close',
         'reset' => 'Clear',
@@ -36,9 +39,15 @@
         'date' => 'Date',
         'choose_item' => 'Choose one',
         'name' => 'Name',
+<<<<<<< HEAD
         'parent' => 'Parent',
         'view'              =>'View',
         'publish'           =>'Publish'
+=======
+        'parent' => 'Parent'
+        'view'              =>'View'
+>>>>>>> 0a0701122763d90b2a5e3e77c3ae32669dceb75c
+>>>>>>> d9ceef286dafd5da8f72d458c39a6a32b901f7ec
     ]
 
 
