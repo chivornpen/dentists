@@ -16,8 +16,12 @@ class switchLanguage
     public function handle($request, Closure $next)
     {
 
-//        dd($request->session()->get('locale'));
-        Lang::setLocale($request->session()->get('locale'));
+        if($request->session()->has('locale')){
+            Lang::setLocale($request->session()->get('locale'));
+        }else{
+            Lang::setLocale('en');
+        }
+
         return $next($request);
     }
 }
