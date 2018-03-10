@@ -9,24 +9,25 @@
             </div>
             <div class="panel-body">
                     {!! Form::open(['method'=>'post','id'=>'category']) !!}
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_name')}}</span>
-                            {!! Form::select('language_id',$language,null,['class'=>'edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.choose_item')])!!}
-                            @if($errors->has('language_id'))
-                                <span class="text-danger">
-                                    {{$errors->first('language_id')}}
-                                </span>
-                            @endif
+                    <div class="row">
+                        <input type="hidden" name="category_id" id="category_id" value="0">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_name')}}</span>
+                                {!! Form::select('language_id',$language,null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','id'=>'lang','placeholder'=>trans('label.choose_item')])!!}
+                                @if($errors->has('language_id'))
+                                    <span class="text-danger">
+                                        {{$errors->first('language_id')}}
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.name')}}</span>
-                                {!! Form::text('name',null,['class'=>'edit-form-control text-blue','required'=>'true','placeholder'=>trans('label.name')])!!}
+                                {!! Form::text('name',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.name')])!!}
                                 @if($errors->has('name'))
                                     <span class="text-danger">
                                             {{$errors->first('name')}}
@@ -37,12 +38,24 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.parent')}}</span>
-                                {!! Form::select('parent',$language,null,['class'=>'edit-form-control text-blue height-35','id'=>'code','required'=>'true','placeholder'=>trans('label.choose_item')])!!}
+                                {!! Form::select('parent',$category,0,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','id'=>'par','placeholder'=>trans('label.choose_item')])!!}
                                 @if($errors->has('parent'))
                                     <span class="text-danger">
                                             {{$errors->first('parent')}}
                                         </span>
                                 @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os checkbox checkbox-primary' : 'arial checkbox checkbox-primary'}}">
+                                    {!! Form::checkbox('publish',1,null,['id'=>'publish']) !!}
+                                    <label for="publish">
+                                        {{trans('label.publish')}}
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -61,8 +74,13 @@
             </div>
             <div class="panel-footer">
                 <div id="viewCategory">
-
+                    <div class="center">
+                        <i class="fa fa-spinner fa-spin" style="font-size:24px"> </i> <span>&nbsp; Wait...</span>
+                    </div>
                 </div>
+            </div>
+            <div id="testing">
+
             </div>
         </div>
     </div>
@@ -93,15 +111,27 @@
             $.ajax({
                 type : 'post',
                 url  : "{{route('category.store')}}",
-                dataType: 'html',
                 data : data,
+                dataType: 'json',
                 beforeSend:function () {
                 },
                 success:function (data) {
+                    console.log(data.parent);
+                    var serialnumber="<option value=''>{{trans('label.choose_item')}}</option>";
+                    $.map(data.language,function(value ,key){
+                        serialnumber+="<option value=" + key + ">" + value + "</option>";
+                    });
+                    $('#lang').html(serialnumber);
+
                     $('#category')[0].reset();
+                    $('#category_id').val(data.id);
                     $(document).ready(function () {
                         getViewCategory();
+                        getSelectParent();
                     });
+                },
+                error:function (error) {
+                    console.log(error);
                 }
             });
         });
@@ -145,6 +175,25 @@
                     .error(function(data) {
                         swal("Oops", "We couldn't connect to the server!", "error");
                     });
+            });
+        }
+
+        function getSelectParent() {
+            $.ajax({
+                type: 'get',
+                url: "{{url('/get/select/parent')}}",
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    var serialnumber="<option value=''>{{trans('label.choose_item')}}</option>";
+                        $.map(response,function(value ,key){
+                            serialnumber+="<option value=" + key + ">" + value + "</option>";
+                        });
+                    $('#par').html(serialnumber);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
             });
         }
     </script>

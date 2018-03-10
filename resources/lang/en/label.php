@@ -37,8 +37,9 @@
         'date' => 'Date',
         'choose_item' => 'Choose one',
         'name' => 'Name',
-        'parent' => 'Parent',
-        'fill'  =>'Please fill this box'
+        'parent' => 'Main',
+        'fill'  =>'Please fill this box',
+        'publish'           =>'Publish'
     ]
 
 

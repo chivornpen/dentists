@@ -52,11 +52,16 @@
         //category product
         Route::resource('/categoryproduct','categoryProductController');
 
+        //category product
+        Route::resource('/categoryproduct','categoryProductController');
         //category
         Route::resource('/category','CategoryController');
         Route::get('/category/edit/{id}','CategoryController@edit');
         Route::patch('/category/update/{id}','CategoryController@update');
         Route::get('/category/delete/{id}','CategoryController@destroy');
+
+        Route::get('/get/select/parent','CategoryController@getSelectParent');
+        Route::get('/get/select/language/{id}','CategoryController@getSelectLanguage');
 
 
 
