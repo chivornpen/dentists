@@ -16,15 +16,10 @@
         'edit' => 'កែប្រែ',
         'create' => 'បង្កើត',
         'cancel' => 'បោះបង់',
-<<<<<<< HEAD
         'language_list'         => 'បញ្ជីភាសា',
         'article'               => 'អត្តបទ',
         'view'                  => 'ទិដ្ឋភាព',
-        'categoryproduct'       => 'ប្រភេទផលិតផល'
-=======
-        'language_list' => 'បញ្ជីភាសា',
-        'article'       => 'អត្តបទ',
-        'view'          => 'ទិដ្ឋភាព',
+        'categoryproduct'       => 'ប្រភេទផលិតផល',
         'update' => 'កែប្រែ',
         'close' => 'បិទ',
         'reset' => 'ជម្រះ',
@@ -43,8 +38,8 @@
         'date' => 'កាលបរិច្ឆេទ',
         'choose_item' => 'ជ្រើសរើសមួយឯកត្តា',
         'name' => 'ឈ្មោះ',
-        'parent' => 'Parent'
->>>>>>> 0a0701122763d90b2a5e3e77c3ae32669dceb75c
+        'parent' => 'Parent',
+        'fill'  =>'សូមបំពេញប្រអប់មួយនេះ....'
 
     ]
 

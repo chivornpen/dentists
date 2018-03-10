@@ -18,9 +18,7 @@
         'logout'            =>'Log Out',
         'article'           => 'Article',
         'view'              =>'View',
-<<<<<<< HEAD
-        'categoryproduct'   =>'Category Product'
-=======
+        'categoryproduct'   =>'Category Product',
         'update' => 'Update',
         'close' => 'Close',
         'reset' => 'Clear',
@@ -39,9 +37,8 @@
         'date' => 'Date',
         'choose_item' => 'Choose one',
         'name' => 'Name',
-        'parent' => 'Parent'
-        'view'              =>'View'
->>>>>>> 0a0701122763d90b2a5e3e77c3ae32669dceb75c
+        'parent' => 'Parent',
+        'fill'  =>'Please fill this box'
     ]
 
 
