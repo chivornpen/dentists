@@ -9,20 +9,34 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 
 class categoryProductController extends Controller
 {
-
     public function index()
     {
-        //
+        $locale = Lang::locale();
+        $id = Language::where('code',$locale)->value('id');
+        $l  = Language::find($id);
+        $categoryproduct = $l;
+        return view('admin.categoryproduct.view',compact('categoryproduct'));
     }
 
 
     public function create()
     {
-       $lang = Language::pluck('name','id');
-       return view('admin.categoryproduct.create',compact('lang'));
+       $lang    = Language::pluck('name','id');
+       $locale = Lang::locale();
+       $id = Language::where('code',$locale)->value('id');
+       $l  = Language::find($id);
+       $categoryProduct = $l->categoryproducts()->pluck('name','categoryproducts.id');
+       return view('admin.categoryproduct.create',compact('lang','categoryProduct'));
+    }
+
+    public function changeParent($id){
+        $l  = Language::find($id);
+        $categoryProduct = $l->categoryproducts()->pluck('name','categoryproducts.id');
+        return response()->json($categoryProduct);
     }
 
     public function store(Request $request)
@@ -82,40 +96,41 @@ class categoryProductController extends Controller
     }
 
 
-    public function show($id)
+    public function show($id)//delete categoryProduct
     {
-        //
+        $catPro = Categoryproduct::find($id);
+        $catPro->trash=1;
+        $catPro->save();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit($id,$langId)
     {
-        //
+        $l = Language::find($langId);
+        $data = $l->categoryproducts()->where('categoryproduct_id',$id)->get();
+        $parent = $l->categoryproducts()->where('trash',0)->pluck('name','categoryproduct_id');
+        return view('admin.categoryproduct.edit',compact('data','parent'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $cate = Categoryproduct::find($id);
+        if($request->parent_num) {
+            $cate->parent = $request->parent_num;
+        }else{
+            $cate->parent = 0;
+        }
+        if ($request->publishedit=='on'){
+            $cate->publish = 1;
+        }else{
+            $cate->publish = 0;
+        }
+        $cate->save();
+        DB::table('categoryproduct_language')->where('id',$request->pivotId)->update(['name'=>$request->name]);
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //

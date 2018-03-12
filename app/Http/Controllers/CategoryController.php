@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Categoryproduct;
 use App\Language;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,9 +21,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
-        $cat = Category::all();
-        return view('admin.categories.index',compact('cat'));
+        $locale = Lang::locale();
+        $l = Language::where('code',$locale)->value('id');
+        $lang = Language::find($l);
+        $category = $lang->categories()->where('trash',0)->get();
+        return view('admin.categories.index',compact('category','l'));
     }
 
     /**
@@ -124,9 +127,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$langId)
     {
-        //
+        $l = Language::find($langId);
+        $data = $l->categories()->where('category_id',$id)->get();
+        $parent = $l->categories()->where('trash',0)->pluck('name','category_id');
+        return view('admin.categories.edit',compact('data','parent'));
     }
 
     /**
@@ -138,7 +144,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cate = Category::find($id);
+        if($request->parent_num) {
+            $cate->parent = $request->parent_num;
+        }else{
+            $cate->parent = 0;
+        }
+        if ($request->publishedit=='on'){
+            $cate->publish = 1;
+        }else{
+            $cate->publish = 0;
+        }
+        $cate->save();
+        DB::table('category_language')->where('id',$request->pivotId)->update(['name'=>$request->name]);
+        return redirect()->back();
     }
 
     /**
@@ -149,7 +168,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Category::find($id);
+        $cat->trash = 0;
+        $cat->save();
     }
     public function getSelectParent()
     {
@@ -159,10 +180,10 @@ class CategoryController extends Controller
         $category = $lang->categories()->pluck('name','categories.id');
         return response()->json($category);
     }
-    public function getSelectLanguage($id)
+    public function selectParent($id)
     {
-//        $lang = Language::whereNotIn('id')
-//        $category = $lang->categories()->pluck('name','categories.id');
-//        return response()->json($category);
+        $lang = Language::find($id);
+        $category = $lang->categories()->pluck('name','categories.id');
+        return response()->json($category);
     }
 }

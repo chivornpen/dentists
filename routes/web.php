@@ -54,14 +54,21 @@
 
         //category product
         Route::resource('/categoryproduct','categoryProductController');
+        Route::get('/category/product/change/parent/{id}','categoryProductController@changeParent');
+        Route::get('/category/product/edit/{id}/{language_id}','categoryProductController@edit');
+        Route::get('/category/product/delete/{id}','categoryProductController@show');
+
+        //product
+        Route::resource('/product','productController');
+
         //category
         Route::resource('/category','CategoryController');
-        Route::get('/category/edit/{id}','CategoryController@edit');
+        Route::get('/category/edit/{id}/{langId}','CategoryController@edit');
         Route::patch('/category/update/{id}','CategoryController@update');
         Route::get('/category/delete/{id}','CategoryController@destroy');
-
         Route::get('/get/select/parent','CategoryController@getSelectParent');
         Route::get('/get/select/language/{id}','CategoryController@getSelectLanguage');
+        Route::get('/get/select/parent/{id}','CategoryController@selectParent');
 
 
 

@@ -11,7 +11,7 @@
                     {!! Form::open(['method'=>'post','id'=>'category']) !!}
                     <div class="row">
                         <input type="hidden" name="category_id" id="category_id" value="0">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_name')}}</span>
                                 {!! Form::select('language_id',$language,null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','id'=>'lang','placeholder'=>trans('label.choose_item')])!!}
@@ -22,9 +22,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.name')}}</span>
                                 {!! Form::text('name',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.name')])!!}
@@ -35,7 +33,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.parent')}}</span>
                                 {!! Form::select('parent',$category,0,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','id'=>'par','placeholder'=>trans('label.choose_item')])!!}
@@ -66,9 +64,7 @@
                     {!! Form::close() !!}
 
                 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                    <div id="editlanguage">
-
-                    </div>
+                    <div id="editCat"></div>
                 </div>
 
             </div>
@@ -88,6 +84,39 @@
 
 @section('script')
     <script type="text/javascript">
+
+        function editCat(id,langId) {
+            $.ajax({
+                type : 'get',
+                url : "{{url('/category/edit')}}"+"/"+id+"/"+langId,
+                dataType : 'html',
+                success:function (data) {
+                    $('#editCat').html(data);
+                },
+                error:function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        $('#lang').on('change',function () {
+            var langId = $(this).val();
+            $.ajax({
+                type:'get',
+                url:"{{url('get/select/parent')}}"+'/'+langId,
+                dataType:'json',
+                success:function (data) {
+                    var serialnumber="<option value=''>{{trans('label.choose_item')}}</option>";
+                    $.map(data,function(value ,key){
+                        serialnumber+="<option value=" + key + ">" + value + "</option>";
+                    });
+                    $('#par').html(serialnumber);
+                },
+                error:function (error) {
+                    console.log(error);
+                }
+            });
+        });
         function getViewCategory() {
             $.ajax({
                 type:'get',
@@ -162,7 +191,7 @@
                 confirmButtonColor: "#ec6c62"
             }, function() {
                 $.ajax({
-                    url : "{{url('/language/delete')}}"+"/"+id,
+                    url : "{{url('/category/delete')}}"+"/"+id,
                     type: "get",
                     dataType: 'html'
                 })

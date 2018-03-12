@@ -103,11 +103,15 @@
 }
 .time-roman{
     font-size: 17px;
-    font-family: "Times New Roman",Serif;
+    font-family:Montserrat, Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
 .kh-moul{
     font-family: "Khmer OS Muol Light",Serif;
+}
+.required:after{
+    content:"*";
+    color: red;
 }
 .cursor-pointer{
     cursor: pointer;

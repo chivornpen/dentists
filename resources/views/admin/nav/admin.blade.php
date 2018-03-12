@@ -37,6 +37,25 @@
         </ul>
     </li>
 
+
+    {{--product--}}
+    <li class="treeview">
+        <a href="#"><i class="fa fa-product-hunt"></i><span> <span class="{{Lang::locale()=== 'kh'? 'kh-os' : 'arial'}}">{{trans('label.product')}}</span></span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+            {{--<span class="pull-right-container">--}}
+            {{--<span class="label label-primary pull-right">4</span>--}}
+            {{--</span>--}}
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{route('product.create')}}"><i class="fa fa-circle-o"></i><span class="{{Lang::locale()=== 'kh'? 'kh-os' : 'arial'}}">{{trans('label.add_new')}}</span></a></li>
+            <li><a href="{{route('product.index')}}"><i class="fa fa-circle-o"></i><span class="{{Lang::locale()=== 'kh'? 'kh-os' : 'arial'}}">{{trans('label.view')}}</span></a></li>
+
+        </ul>
+    </li>
+    {{--product--}}
+
+
+
+
     {{--Article--}}
     <li class="treeview">
         <a href="#"><i class="fa fa-files-o"></i><span> <span class="{{Lang::locale()=== 'kh'? 'kh-os' : 'arial'}}">{{trans('label.article')}}</span></span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
