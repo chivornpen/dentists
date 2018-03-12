@@ -20,9 +20,18 @@ class CategoryController extends Controller
      */
     public function index()
     {
+//        $locale = Lang::locale();
+//        $l = Language::where('code',$locale)->value('id');
+//        $lang = Language::find($l);
+//        $category = $lang->categories()->where('trash',0)->get();
+//        return view('admin.categories.index',compact('category','l'));
 
         $cat = Category::all();
-        return view('admin.categories.index',compact('cat'));
+        foreach ($cat as $c){
+            foreach ($c->languages as $l){
+                echo $l->pivot->name;
+            }
+        }
     }
 
     /**
@@ -75,34 +84,33 @@ class CategoryController extends Controller
             }
         }
         $check = Category::where('id',$id)->get();
-        if($request->ajax()){
-            if(!count($check)){
+        if($request->ajax()) {
+            if (!count($check)) {
                 $cat = new Category();
-                $cat->date    =  Carbon::now()->toDateString();
-                $cat->parent=$request->parent;
-                if($request->publish==1){
-                    $cat->publish    =  $request->publish;
-                }else{
+                $cat->date = Carbon::now()->toDateString();
+                $cat->parent = $request->parent;
+
+                if ($request->publish == 1) {
+                    $cat->publish = $request->publish;
+                } else {
                     $cat->publish = 0;
                 }
-                $cat->trash   = 0;
-                $cat->user_added   = Auth::user()->id;
-                $cat->user_modifies   = 0;
+                $cat->trash = 0;
+                $cat->user_added = Auth::user()->id;
+                $cat->user_modifies = 0;
                 $cat->save();
                 $id = $cat->id;
-                $request->session()->put('category_id',[$id=>$id]);
-                $cat->languages()->attach($request->language_id,['name'=>$request->name]);
-                return response()->json(['id'=>0,'language'=>$language]);
-            }else{
-                DB::table('category_language')->insert(['language_id'=>$request->language_id,'category_id'=>$id,'name'=>$request->name]);
-                if(!$request->session()->has('langId')){
+                $request->session()->put('category_id', [$id => $id]);
+                $cat->languages()->attach($request->language_id, ['name' => $request->name]);
+                return response()->json(['id' => 0, 'language' => $language]);
+            } else {
+                DB::table('category_language')->insert(['language_id' => $request->language_id, 'category_id' => $id, 'name' => $request->name]);
+                if (!$request->session()->has('langId')) {
                     $id = 0;
                 }
-                return response()->json(['id'=>0,'language'=>$language]);
+                return response()->json(['id' => 0, 'language' => $language]);
             }
-
-
-       }
+        }
     }
 //
     /**

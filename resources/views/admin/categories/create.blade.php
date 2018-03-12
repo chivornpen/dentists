@@ -116,7 +116,6 @@
                 beforeSend:function () {
                 },
                 success:function (data) {
-                    console.log(data.parent);
                     var serialnumber="<option value=''>{{trans('label.choose_item')}}</option>";
                     $.map(data.language,function(value ,key){
                         serialnumber+="<option value=" + key + ">" + value + "</option>";
