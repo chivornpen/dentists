@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Categoryproduct;
 use App\Language;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
 class CategoryController extends Controller
 {
     /**
@@ -20,6 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
 //        $locale = Lang::locale();
 //        $l = Language::where('code',$locale)->value('id');
 //        $lang = Language::find($l);
@@ -32,6 +34,13 @@ class CategoryController extends Controller
                 echo $l->pivot->name;
             }
         }
+=======
+        $locale = Lang::locale();
+        $l = Language::where('code',$locale)->value('id');
+        $lang = Language::find($l);
+        $category = $lang->categories()->where('trash',0)->get();
+        return view('admin.categories.index',compact('category','l'));
+>>>>>>> f4e6d7b5b18ee79bd8f4c376842254f933444ccb
     }
 
     /**
@@ -69,19 +78,21 @@ class CategoryController extends Controller
         }else{
             $request->session()->put('langId',$array_one);
         }
-        $array_lang = $request->session()->get('langId');
-        $language = Language::whereNotIn('id',$array_lang)->pluck('name','id');
-        if(!count($language)){
-            $request->session()->forget('langId');
-            $request->session()->forget('category_id');
-            $language = Language::pluck('name','id');
-        }
+
         $id =0;
         if($request->session()->has('category_id')){
             $categ = $request->session()->get('category_id');
             foreach ($categ as $c){
                 $id = $c;
             }
+        }
+
+        $array_lang = $request->session()->get('langId');
+        $language = Language::whereNotIn('id',$array_lang)->pluck('name','id');
+        if(!count($language)){
+            $request->session()->forget('langId');
+            $request->session()->forget('category_id');
+            $language = Language::pluck('name','id');
         }
         $check = Category::where('id',$id)->get();
         if($request->ajax()) {
@@ -130,9 +141,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$langId)
     {
-        //
+        $l = Language::find($langId);
+        $data = $l->categories()->where('category_id',$id)->get();
+        $parent = $l->categories()->where('trash',0)->pluck('name','category_id');
+        return view('admin.categories.edit',compact('data','parent'));
     }
 
     /**
@@ -144,7 +158,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cate = Category::find($id);
+        if($request->parent_num) {
+            $cate->parent = $request->parent_num;
+        }else{
+            $cate->parent = 0;
+        }
+        if ($request->publishedit=='on'){
+            $cate->publish = 1;
+        }else{
+            $cate->publish = 0;
+        }
+        $cate->save();
+        DB::table('category_language')->where('id',$request->pivotId)->update(['name'=>$request->name]);
+        return redirect()->back();
     }
 
     /**
@@ -155,7 +182,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Category::find($id);
+        $cat->trash = 0;
+        $cat->save();
     }
     public function getSelectParent()
     {
@@ -165,10 +194,10 @@ class CategoryController extends Controller
         $category = $lang->categories()->pluck('name','categories.id');
         return response()->json($category);
     }
-    public function getSelectLanguage($id)
+    public function selectParent($id)
     {
-//        $lang = Language::whereNotIn('id')
-//        $category = $lang->categories()->pluck('name','categories.id');
-//        return response()->json($category);
+        $lang = Language::find($id);
+        $category = $lang->categories()->pluck('name','categories.id');
+        return response()->json($category);
     }
 }

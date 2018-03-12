@@ -26,7 +26,7 @@
         'profile' => 'Profile',
         'placeholder_name' => 'English',
         'are_you_sure' => 'Are you sure?',
-        'are_you_sure_delete' => 'Are you sure that you want to delete this file?',
+        'are_you_sure_delete' => 'Are you sure that you want to delete?',
         'yes' => 'Yes',
         'no' => 'No',
         'ok' => 'Ok',
@@ -37,8 +37,18 @@
         'date' => 'Date',
         'choose_item' => 'Choose one',
         'name' => 'Name',
-        'parent' => 'Parent',
-        'publish'           =>'Publish'
+        'parent' => 'Main',
+        'fill'  =>'Please fill this box',
+        'publish'           =>'Publish',
+        'list_view'=>'List View',
+        'delete'=>'Delete',
+        'product'=>'Product',
+        'user_name' => 'User Name',
+        'email' => 'Email',
+        'password' => 'Password',
+        'confirm' => 'Confirm',
+        'role' => 'Role'
+
     ]
 
 
