@@ -43,15 +43,16 @@
 
     {{--dateTime Picker--}}
     {{--<link rel="stylesheet" href="{{asset('css/bootstrap-datetimepicker.min.css')}}">--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body  class="hold-transition skin-blue sidebar-mini" >
 <div class="wrapper">
 
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{URL::to('/')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">KIHP</span>
             <!-- logo for regular state and mobile devices -->
@@ -68,9 +69,13 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
+<<<<<<< HEAD
 
 
                     <!-- <li class="dropdown messages-menu">
+=======
+                    <li class="dropdown messages-menu">
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
                             <span class="label label-success">4</span>
@@ -87,8 +92,12 @@
 
                     </li>
 
+<<<<<<< HEAD
 
                     Tasks: style can be found in dropdown.less
+=======
+                    <!-- Tasks: style can be found in dropdown.less -->
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
 
                     <li class="dropdown tasks-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -101,6 +110,7 @@
                     <li class="dropdown tasks-menu">
                         {!! Form::select('locale',['en'=>'English','kh'=>'ខ្មែរ'],Lang::locale(),['id'=>'locale','class'=>'margin-top-23 kh-os']) !!}
                     </li>
+<<<<<<< HEAD
 
                     {{--start user log out--}}
                 <!-- start User Account: style can be found in dropdown.less -->
@@ -141,6 +151,60 @@
                     </li>
                     {{--end user log out--}}
 
+=======
+                    <!-- start User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                      <!-- Menu Toggle Button -->
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <!-- The user image in the navbar-->
+                        <img src="/photo/{{Auth::user()->photo}}" class="user-image" alt="User Image" style="background: white;border:2px solid green;padding:1px;">
+                        <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                        <span class="hidden-xs">{!! Auth::user()->username !!}</span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <!-- The user image in the menu -->
+                        <li class="user-header">
+                          <img src="/photo/{{Auth::user()->photo}}" class="img-circle" alt="User Image" style="background: white;border:2px solid blue;padding:1px;">
+          
+                          <p>
+                            {!! Auth::user()->username !!} - {!! Auth::user()->position->name !!}
+                            <small>{!! Auth::user()->email !!} </small>
+                          </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <!-- <li class="user-body">
+                          <div class="row">
+                            <div class="col-xs-4 text-center">
+                              <a href="#">Followers</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                              <a href="#">Sales</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                              <a href="#">Friends</a>
+                            </div>
+                          </div>
+                        </li> -->
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                          <div class="pull-left">
+                            <a href="#" onclick='viewUser("{!! Auth::user()->id !!}")' class="btn btn-default btn-flat" data-toggle="modal" data-target="#viewUser" style="border-radius: 5px;"><i class="fa fa-eye"></i> Profile</a>
+                          </div>
+                          <div class="pull-right">
+                              <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();" style="border-radius: 5px;"><i class="fa fa-sign-out"></i>
+                                    Log Out
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- end user -->
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                 </ul>
             </div>
 
@@ -150,7 +214,11 @@
     <aside class="main-sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
+<<<<<<< HEAD
                     <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 46px" alt="User Image">
+=======
+                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 45px;" alt="User Image">
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                 </div>
                 <div class="pull-left info">
                     <p>{!! Auth::user()->username !!}</p>
@@ -235,11 +303,9 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- DataTables -->
-
-
-
-
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/js.min.js') }}"></script>
+<script src="{{ asset('js/printThis.js') }}"></script>
 @yield('script')
 {{--datetimepicker--}}
 {{--<script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>--}}
@@ -247,6 +313,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<<<<<<< HEAD
 
 
 <script type="text/javascript">
@@ -278,6 +345,37 @@
 </script>
 
 
+=======
+<!-- <script>
+        {{--var user = {!! json_encode((array)auth()->user()) !!};--}}
+        {{--console.log(user)--}}
+
+<script>
+        //var user = {!! json_encode((array)auth()->user()) !!};
+        //console.log(user)
+        // window.Laravel = {
+        {{--//     csrfToken: '{{csrf_token()}}',--}}
+        //     auth: {
+        //         user: ""
+        //     }
+        // }
+        function viewUser(id) {
+            $.ajax({
+                type: 'get',
+                url:"{{url('/admin/user/view')}}"+"/"+id,
+                dataType: 'html',
+                success:function (data) {
+                    $('#viewUser').html(data);
+                },
+                error:function (error) {
+                    console.log(error);
+                }
+
+            });
+
+        }
+</script>
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
 
 </body>
 </html>

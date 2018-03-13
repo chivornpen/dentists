@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+<<<<<<< HEAD
 use App\Categoryproduct;
 use App\Language;
 use Carbon\Carbon;
@@ -12,6 +13,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Session;
+=======
+use App\Section;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
 class CategoryController extends Controller
 {
     /**
@@ -21,11 +29,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $locale = Lang::locale();
         $l = Language::where('code',$locale)->value('id');
         $lang = Language::find($l);
         $category = $lang->categories()->where('trash',0)->get();
         return view('admin.categories.index',compact('category','l'));
+=======
+        $cat = Category::where('active',1)->get();
+        return view('admin.categories.index',compact('cat'));
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     }
 
     /**
@@ -35,6 +48,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $locale = Lang::locale();
         $lang=[];
         if(Session::has('langId')){
@@ -45,6 +59,10 @@ class CategoryController extends Controller
         $lang = Language::find($l);
         $category = $lang->categories()->pluck('name','categories.id');
         return view('admin.categories.create',compact('language','category'));
+=======
+        $cat = Category::where('active',1)->pluck('name','id');
+        return view('admin.categories.create',compact('cat'));
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     }
 
     /**
@@ -55,6 +73,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $array_one[$request->language_id]=$request->language_id;
         if($request->session()->has('langId')){
             $lang = $request->session()->get('langId');
@@ -109,6 +128,23 @@ class CategoryController extends Controller
         }
     }
 //
+=======
+        $this->validate($request,[
+            'name'       =>'required'
+        ],[
+            'name.required' =>'Category name required'
+        ]);
+
+        $cat = new Category();
+        $cat->name = trim($request->input('name'));
+        $cat->parent = trim($request->input('parent'));
+        $cat->description = trim($request->input('description'));
+        $cat->user_id = Auth::user()->id;
+        $cat->active = 1;
+        $cat->save();
+    }
+
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     /**
      * Display the specified resource.
      *
@@ -126,12 +162,20 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function edit($id,$langId)
     {
         $l = Language::find($langId);
         $data = $l->categories()->where('category_id',$id)->get();
         $parent = $l->categories()->where('trash',0)->pluck('name','category_id');
         return view('admin.categories.edit',compact('data','parent'));
+=======
+    public function edit($id)
+    {
+        $cat = Category::find($id);
+        $c = Category::where('active',1)->pluck('name','id');
+        return view('admin.categories.edit',compact('cat','c'));
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     }
 
     /**
@@ -143,6 +187,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         $cate = Category::find($id);
         if($request->parent_num) {
             $cate->parent = $request->parent_num;
@@ -156,6 +201,20 @@ class CategoryController extends Controller
         }
         $cate->save();
         DB::table('category_language')->where('id',$request->pivotId)->update(['name'=>$request->name]);
+=======
+        $this->validate($request,[
+            'name'       =>'required'
+        ],[
+            'name.required' =>'Category name required'
+        ]);
+
+        $cat = Category::find($id);
+        $cat->name = $request->input('name');
+        $cat->parent = trim($request->input('parent'));
+        $cat->description = $request->input('description');
+        $cat->user_id = Auth::user()->id;
+        $cat->save();
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
         return redirect()->back();
     }
 
@@ -168,6 +227,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $cat = Category::find($id);
+<<<<<<< HEAD
         $cat->trash = 0;
         $cat->save();
     }
@@ -184,5 +244,15 @@ class CategoryController extends Controller
         $lang = Language::find($id);
         $category = $lang->categories()->pluck('name','categories.id');
         return response()->json($category);
+=======
+        $cat->active = 0;
+        $cat->save();
+        return redirect()->back();
+    }
+    public function getSelectParent()
+    {
+        $s = Category::where('active',1)->get();
+        return response()->json($s);
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     }
 }

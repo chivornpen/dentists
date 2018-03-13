@@ -1,6 +1,25 @@
+<<<<<<< HEAD
 .edit-form-control{
     outline: none;
     border-radius: 7px;
+=======
+.icon-edit{
+    color: #f39c12;
+    padding: 3px;
+}
+.icon-delete{
+    color: #dd4b39;
+    padding: 3px;
+}
+.icon-view{
+    color: #00c0ef;
+    padding: 3px;
+}
+.edit-form-control {
+    outline: none;
+    border-radius: 5px;
+    outline: none;
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     padding: 6px 10px;
     border: 1px solid #ddd;
     font-family: "Times New Roman", serif;
@@ -26,6 +45,18 @@
     /*-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
     /*transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
 }
+.height-35px{
+    height:35px;
+}
+
+.kh-os{
+    font-family: "Khmer OS System", serif;
+    font-size: 12px;
+}
+.height-35px{
+    height:35px;
+}
+.required:after { content:" *";color:red }
 
 .edit-dropdown-control{
     border-radius: 4px;
@@ -69,7 +100,7 @@
 }
 
 .edit-label{
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Freehand;
     font-size: 14px;
     margin-bottom: 5px;
 }
@@ -153,7 +184,14 @@
     display:none;
 }
 .pandding-2{
+<<<<<<< HEAD
     padding: 4px;
+=======
+    padding: 6px;
+}
+.padding-10{
+    padding: 10px;
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
 }
 .center{
     text-align: center;

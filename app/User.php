@@ -29,6 +29,16 @@ class User extends Authenticatable
         return $this->hasMany(Category::class,'user_added');
     }
 
+    public function pricelists(){
+        return $this->hasMany(Pricelist::class);
+    }
+    public function suppliers(){
+        return $this->hasMany(Supply::class);
+    }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 
     public function isAdmin(){
         if($this->role->name =="administrator"){
@@ -50,6 +60,7 @@ class User extends Authenticatable
         }
         return false;
     }
+
 
 
 

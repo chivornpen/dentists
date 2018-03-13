@@ -32,14 +32,14 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         {!! Form::label('Role','&nbsp;Role',['class'=>'edit-label margin-left-5px']) !!}
-                                        {!! Form::select('role_id',$role,null,['class'=>'edit-form-control','placeholder'=>'Role name', 'required'=>true ]) !!}
+                                        {!! Form::select('role_id',$role,null,['class'=>'edit-form-control height-35px','placeholder'=>'Role name', 'required'=>true ]) !!}
                                         @if($errors->has('role'))
                                             <span class="text-danger">{{$errors->first('role')}}</span>
                                         @endif
                                     </div>
                                     <div class="col-lg-6">
                                         {!! Form::label('Position','&nbsp;Position',['class'=>'edit-label']) !!}
-                                        {!! Form::select('position_id',$position,null,['class'=>'edit-form-control','placeholder'=>'Position name', 'required'=>true ]) !!}
+                                        {!! Form::select('position_id',$position,null,['class'=>'edit-form-control height-35px','placeholder'=>'Position name', 'required'=>true ]) !!}
                                         @if($errors->has('position'))
                                             <span class="text-danger">{{$errors->first('position')}}</span>
                                         @endif

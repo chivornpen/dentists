@@ -52,7 +52,7 @@ class DefaultController extends Controller
            $users->position_id  =   1;
            $users->name         =   "Administrator";
            $users->username     =  "Administrator";
-           $users->email        =  "Admin@gmail.com";
+           $users->email        =  "admin@gmail.com";
            $users->password     =  bcrypt('admin');
            $users->photo        =  "default_user.png";
            $users->save();

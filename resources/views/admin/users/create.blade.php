@@ -51,15 +51,25 @@
                                                 </div>
 
                                                 <div class="col-lg-3">
+<<<<<<< HEAD
                                                     <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.role')}}</span>
                                                     {!! Form::select('role',$role,null,['class'=>'edit-form-control','placeholder'=>'Role name', 'required'=>true ]) !!}
+=======
+                                                    {!! Form::label('Role','&nbsp;Role',['class'=>'edit-label margin-left-5px']) !!}
+                                                    {!! Form::select('role',$role,null,['class'=>'edit-form-control height-35px','placeholder'=>'Role name', 'required'=>true ]) !!}
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                                                     @if($errors->has('role'))
                                                         <span class="text-danger">{{$errors->first('role')}}</span>
                                                     @endif
                                                 </div>
                                                 <div class="col-lg-3">
+<<<<<<< HEAD
                                                     <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.position')}}</span>
                                                     {!! Form::select('position',$position,null,['class'=>'edit-form-control','placeholder'=>'Position name', 'required'=>true ]) !!}
+=======
+                                                    {!! Form::label('Position','&nbsp;Position',['class'=>'edit-label']) !!}
+                                                    {!! Form::select('position',$position,null,['class'=>'edit-form-control height-35px','placeholder'=>'Position name', 'required'=>true ]) !!}
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                                                     @if($errors->has('position'))
                                                         <span class="text-danger">{{$errors->first('position')}}</span>
                                                     @endif
