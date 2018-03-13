@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Servay;
+use App\Section;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class ServayController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,8 @@ class ServayController extends Controller
      */
     public function index()
     {
-        //
+        $cat = Category::where('active',1)->get();
+        return view('admin.categories.index',compact('cat'));
     }
 
     /**
@@ -27,8 +28,8 @@ class ServayController extends Controller
      */
     public function create()
     {
-        $servay = Servay::where('active',1)->get();
-        return view('admin.servays.create',compact('servay'));
+        $cat = Category::where('active',1)->pluck('name','id');
+        return view('admin.categories.create',compact('cat'));
     }
 
     /**
@@ -42,16 +43,16 @@ class ServayController extends Controller
         $this->validate($request,[
             'name'       =>'required'
         ],[
-            'name.required' =>'Servay name required'
+            'name.required' =>'Category name required'
         ]);
 
-        $servay = new Servay();
-        $servay->name = $request->input('name');
-        $servay->description = $request->input('description');
-        $servay->user_id = Auth::user()->id;
-        $servay->active = 1;
-        $servay->save();
-        return redirect()->back();
+        $cat = new Category();
+        $cat->name = trim($request->input('name'));
+        $cat->parent = trim($request->input('parent'));
+        $cat->description = trim($request->input('description'));
+        $cat->user_id = Auth::user()->id;
+        $cat->active = 1;
+        $cat->save();
     }
 
     /**
@@ -73,8 +74,9 @@ class ServayController extends Controller
      */
     public function edit($id)
     {
-        $servay = Servay::find($id);
-        return view('admin.servays.edit',compact('servay'));
+        $cat = Category::find($id);
+        $c = Category::where('active',1)->pluck('name','id');
+        return view('admin.categories.edit',compact('cat','c'));
     }
 
     /**
@@ -89,14 +91,15 @@ class ServayController extends Controller
         $this->validate($request,[
             'name'       =>'required'
         ],[
-            'name.required' =>'Servay name required'
+            'name.required' =>'Category name required'
         ]);
 
-        $servay = Servay::find($id);
-        $servay->name = $request->input('name');
-        $servay->description = $request->input('description');
-        $servay->user_id = Auth::user()->id;
-        $servay->save();
+        $cat = Category::find($id);
+        $cat->name = $request->input('name');
+        $cat->parent = trim($request->input('parent'));
+        $cat->description = $request->input('description');
+        $cat->user_id = Auth::user()->id;
+        $cat->save();
         return redirect()->back();
     }
 
@@ -108,9 +111,14 @@ class ServayController extends Controller
      */
     public function destroy($id)
     {
-        $servay = Servay::find($id);
-        $servay->active = 0;
-        $servay->save();
+        $cat = Category::find($id);
+        $cat->active = 0;
+        $cat->save();
         return redirect()->back();
+    }
+    public function getSelectParent()
+    {
+        $s = Category::where('active',1)->get();
+        return response()->json($s);
     }
 }

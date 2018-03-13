@@ -81,10 +81,42 @@
         Route::get('/get/select/section','DoctorController@selectSection');
 
         //servay
-        //doctor
         Route::resource('servay','ServayController');
         Route::get('/servay/edit/{id}','ServayController@edit');
         Route::get('/servay/delete/{id}','ServayController@destroy');
+
+        //category
+        Route::resource('category','CategoryController');
+        Route::get('/category/edit/{id}','CategoryController@edit');
+        Route::get('/category/delete/{id}','CategoryController@destroy');
+        Route::get('/get/select/parent','CategoryController@getSelectParent');
+
+        //product
+        Route::resource('product','ProductController');
+        Route::get('/product/edit/{id}','ProductController@edit');
+        Route::get('/product/delete/{id}','ProductController@destroy');
+
+        //pricelist
+        Route::resource('pricelist','PricelistController');
+        Route::get('/pricelist/edit/{id}','PricelistController@edit');
+        Route::get('/pricelist/delete/{id}','PricelistController@destroy');
+
+        //suppliers
+        Route::resource('suppliers','SupplyController');
+        Route::get('/suppliers/edit/{id}','SupplyController@edit');
+        Route::get('/suppliers/delete/{id}','SupplyController@destroy');
+
+        //import
+        Route::resource('import','ImportController');
+        Route::get('/import/edit/{id}','ImportController@edit');
+        Route::get('/import/delete/{id}','ImportController@destroy');
+        Route::get('/import/add/{proId}/{qty}/{mfd}/{exp}','ImportController@importAdd');
+        Route::get('/import/view/record','ImportController@viewRecord');
+        Route::get('/tmp/import/remove/{id}','ImportController@remove');
+        Route::get('/tmp/import/discard','ImportController@discard');
+
+
+
 
     });
 

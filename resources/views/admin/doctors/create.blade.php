@@ -33,7 +33,6 @@
                             <div class="col-lg-4">
                                 {!! Form::label('gender','Gender',['class'=>'edit-label required']) !!}
                                 <div class="form-group" style="margin-top: 2%">
-                                    <div class="container">
                                         <div class="radio-inline radio radio-primary">
                                             <input type="radio" name="gender" id="male" value="M" required>
                                             <label for="male">
@@ -46,7 +45,6 @@
                                                 Female
                                             </label>
                                         </div>
-                                    </div>
                                     @if($errors->has('gender'))
                                         <span class="text-danger">{{$errors->first('gender')}}</span>
                                     @endif
@@ -77,7 +75,7 @@
                                 <div class="form-group">
                                     {!! Form::label('section_id','&nbsp;Section',['class'=>'edit-label required']) !!}
                                     <div class="input-group">
-                                        {!! Form::select('section_id',$section,null,['class'=>'form-control section_id text-blue','placeholder'=>'---Please select one---', 'id'=>'section_id','required'=>'true','style'=>'border-bottom-left-radius: 5px; border-top-left-radius: 5px;']) !!}
+                                        {!! Form::select('section_id',$section,null,['class'=>'form-control  text-blue','placeholder'=>'---Please select one---', 'id'=>'section_id','required'=>'true','style'=>'border-bottom-left-radius: 5px; border-top-left-radius: 5px;']) !!}
                                         <span class="input-group-btn">
                                                 <button class="btn btn-secondary" data-toggle="modal" data-target="#section" onclick="addSec()" type="button"><i class="fa fa-plus fa-fw" style="color: #0b93d5"></i></button>
                                         </span>

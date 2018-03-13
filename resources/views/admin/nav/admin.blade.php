@@ -60,14 +60,45 @@
 
             </li>
 
-            <li class="treeview"><a href="#"><i class="fa fa-medkit" aria-hidden="true"></i> Medical <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{route('treatment.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
-                </ul>
-            </li>
+
 
         </ul>
 
     </li>
 
+    <li class="treeview"><a href="#"><i class="fa fa-area-chart"></i><span> Stock Management</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+        <ul class="treeview-menu">
+
+            <li class="treeview"><a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Category <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('category.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
+                </ul>
+            </li>
+
+            <li class="treeview"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i> Product <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('product.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
+                </ul>
+            </li>
+
+            <li class="treeview"><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Pricelist <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('pricelist.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
+                </ul>
+            </li>
+
+            <li class="treeview"><a href="#"><i class="fa fa-industry" aria-hidden="true"></i> Suppliers <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('suppliers.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
+                </ul>
+            </li>
+
+            <li class="treeview"><a href="#"><i class="fa fa-industry" aria-hidden="true"></i> Import Product <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('import.create')}}">&nbsp;&nbsp;&nbsp;&nbsp; Add New</a></li><li class="treeview">
+                </ul>
+            </li>
+
+        </ul>
+    </li>
 </ul>

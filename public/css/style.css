@@ -20,6 +20,10 @@
     /*box-shadow: 0 0px 1px 0px #9d9d9d;*/
     width: 100%;
 }
+.kh-os{
+    font-family: "Khmer OS System", serif;
+    font-size: 12px;
+}
 .height-35px{
     height:35px;
 }

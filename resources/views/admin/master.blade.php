@@ -85,7 +85,6 @@
 
                     </li>
 
-
                     <!-- Tasks: style can be found in dropdown.less -->
 
                     <li class="dropdown tasks-menu">
@@ -156,7 +155,7 @@
     <aside class="main-sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 46px" alt="User Image">
+                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 45px;" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{!! Auth::user()->username !!}</p>

@@ -33,7 +33,6 @@
                             <div class="col-lg-4">
                                 {!! Form::label('gender','Gender',['class'=>'edit-label required']) !!}
                                 <div class="form-group" style="margin-top: 2%">
-                                    <div class="container">
                                         <div class="radio-inline radio radio-primary">
                                             <input type="radio" name="gender" id="male" value="M" required>
                                             <label for="male">
@@ -46,7 +45,6 @@
                                                 Female
                                             </label>
                                         </div>
-                                    </div>
                                     @if($errors->has('gender'))
                                         <span class="text-danger">{{$errors->first('gender')}}</span>
                                     @endif

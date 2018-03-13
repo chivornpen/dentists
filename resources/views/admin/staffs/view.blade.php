@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body">
             <div class="center">
-                <img src='{{asset("/photo/$staff->photo")}}' alt="" style="height: 120px; border-radius: 80px; border: 2px solid #346895; padding: 2px; margin: 0 auto;">
+                <img src='{{asset("/photo/$staff->photo")}}' alt="" style="height: 120px; width: 120px; border-radius: 80px; border: 2px solid #346895; padding: 2px; margin: 0 auto;">
             </div>
             <br>
             <div style="margin: 0 10% 0 10%;">

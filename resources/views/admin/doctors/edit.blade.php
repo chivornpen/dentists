@@ -23,7 +23,6 @@
 
             {!! Form::label('Gender') !!}
             <div class="form-group" style="margin-top: 2%">
-                <div class="container">
                     <div class="radio-inline radio radio-primary">
                         @if($doctor->gender=='M')
                         <input type="radio" name="gender" id="male" value="M" checked>
@@ -50,7 +49,6 @@
                             </label>
                         @endif
                     </div>
-                </div>
                 @if($errors->has('gender'))
                     <span class="text-danger">{{$errors->first('gender')}}</span>
                 @endif
