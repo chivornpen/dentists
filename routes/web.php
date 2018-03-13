@@ -70,6 +70,9 @@
         Route::get('/get/select/language/{id}','CategoryController@getSelectLanguage');
         Route::get('/get/select/parent/{id}','CategoryController@selectParent');
 
+        //client
+        Route::resource('/client','ClientController');
+
 
 
 
