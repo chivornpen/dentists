@@ -33,7 +33,6 @@
                             <div class="col-lg-4">
                                 {!! Form::label('gender','Gender',['class'=>'edit-label required']) !!}
                                 <div class="form-group" style="margin-top: 2%">
-                                    <div class="container">
                                         <div class="radio-inline radio radio-primary">
                                             <input type="radio" name="gender" id="male" value="M" required>
                                             <label for="male">
@@ -46,7 +45,6 @@
                                                 Female
                                             </label>
                                         </div>
-                                    </div>
                                     @if($errors->has('gender'))
                                         <span class="text-danger">{{$errors->first('gender')}}</span>
                                     @endif
@@ -123,7 +121,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     {!! Form::label('branch_id','Branch Name',['class'=>'edit-label']) !!}
-                                    {!! Form::select('branch_id',$branch,null,['class'=>'edit-form-control text-blue','placeholder'=>'Please select one' ]) !!}
+                                    {!! Form::select('branch_id',$branch,null,['class'=>'edit-form-control height-35px text-blue','placeholder'=>'Please select one' ]) !!}
                                     @if($errors->has('branch_id'))
                                         <span class="text-danger">{{$errors->first('branch_id')}}</span>
                                     @endif
@@ -144,8 +142,7 @@
                                     {!! Form::date('endDate',null,['class'=>'edit-form-control text-blue','required'=>'true']) !!}
                                     @if($errors->has('endDate'))
                                         <span class="text-danger">{{$errors->first('endDate')}}</span>
-                                    @endif
-                                </div>
+                                    @endif</div>
                             </div>
                         </div>
                     </div>

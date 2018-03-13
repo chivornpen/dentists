@@ -26,6 +26,16 @@ class User extends Authenticatable
         return $this->belongsTo(Position::class);
     }
 
+    public function pricelists(){
+        return $this->hasMany(Pricelist::class);
+    }
+    public function suppliers(){
+        return $this->hasMany(Supply::class);
+    }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 
     public function isAdmin(){
         if($this->role->name =="administrator"){

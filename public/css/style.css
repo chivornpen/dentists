@@ -11,6 +11,7 @@
     padding: 3px;
 }
 .edit-form-control {
+    outline: none;
     border-radius: 5px;
     outline: none;
     padding: 6px 10px;
@@ -24,6 +25,13 @@
     height:35px;
 }
 
+.kh-os{
+    font-family: "Khmer OS System", serif;
+    font-size: 12px;
+}
+.height-35px{
+    height:35px;
+}
 .required:after { content:" *";color:red }
 
 .edit-dropdown-control{
@@ -247,8 +255,8 @@
 .radio input[type="radio"] {
     opacity: 0; }
 .radio input[type="radio"]:focus + label::before {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
+
+    outline: none;
     outline-offset: -2px; }
 .radio input[type="radio"]:checked + label::after {
     -webkit-transform: scale(1, 1);

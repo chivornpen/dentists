@@ -15,8 +15,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            {!! Form::label('Servay Name')!!}
-                                            {!! Form::text('name',null,['class'=>'edit-form-control'])!!}
+                                            {!! Form::label('name','&nbsp;Servay Name',['class'=>'edit-label required']) !!}
+                                            {!! Form::text('name',null,['class'=>'edit-form-control','required'=>'true'])!!}
                                             @if($errors->has('name'))
                                                 <span class="text-danger">
                                                     {{$errors->first('name')}}

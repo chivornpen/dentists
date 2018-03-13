@@ -52,7 +52,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{URL::to('/')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">CAM</span>
             <!-- logo for regular state and mobile devices -->
@@ -69,8 +69,6 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
-
-
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
@@ -88,7 +86,6 @@
 
                     </li>
 
-
                     <!-- Tasks: style can be found in dropdown.less -->
 
                     <li class="dropdown tasks-menu">
@@ -98,20 +95,58 @@
                         </a>
 
                     </li>
-                    <!-- User Account: style can be found in dropdown.less -->
+                    <!-- start User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                            Log Out
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-
-
+                      <!-- Menu Toggle Button -->
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <!-- The user image in the navbar-->
+                        <img src="/photo/{{Auth::user()->photo}}" class="user-image" alt="User Image" style="background: white;border:2px solid green;padding:1px;">
+                        <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                        <span class="hidden-xs">{!! Auth::user()->username !!}</span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <!-- The user image in the menu -->
+                        <li class="user-header">
+                          <img src="/photo/{{Auth::user()->photo}}" class="img-circle" alt="User Image" style="background: white;border:2px solid blue;padding:1px;">
+          
+                          <p>
+                            {!! Auth::user()->username !!} - {!! Auth::user()->position->name !!}
+                            <small>{!! Auth::user()->email !!} </small>
+                          </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <!-- <li class="user-body">
+                          <div class="row">
+                            <div class="col-xs-4 text-center">
+                              <a href="#">Followers</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                              <a href="#">Sales</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                              <a href="#">Friends</a>
+                            </div>
+                          </div>
+                        </li> -->
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                          <div class="pull-left">
+                            <a href="#" onclick='viewUser("{!! Auth::user()->id !!}")' class="btn btn-default btn-flat" data-toggle="modal" data-target="#viewUser" style="border-radius: 5px;"><i class="fa fa-eye"></i> Profile</a>
+                          </div>
+                          <div class="pull-right">
+                              <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();" style="border-radius: 5px;"><i class="fa fa-sign-out"></i>
+                                    Log Out
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                          </div>
+                        </li>
+                      </ul>
                     </li>
+                    <!-- end user -->
                 </ul>
             </div>
 
@@ -121,7 +156,7 @@
     <aside class="main-sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid #FF7E00;padding:1px;" alt="User Image">
+                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 45px;" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{!! Auth::user()->username !!}</p>
@@ -155,7 +190,12 @@
     </aside>
 
     <div class="content-wrapper">
+        <!-- Modal -->
+        <div id="viewUser" class="modal fade" role="dialog">
+            <div id="viewUser">
 
+            </div>
+        </div>
         @yield('content')
 
         {{--@yield('datetimepicker')--}}
@@ -214,13 +254,32 @@
 <!-- <script>
         {{--var user = {!! json_encode((array)auth()->user()) !!};--}}
         {{--console.log(user)--}}
+
+<script>
+        //var user = {!! json_encode((array)auth()->user()) !!};
+        //console.log(user)
         // window.Laravel = {
         {{--//     csrfToken: '{{csrf_token()}}',--}}
         //     auth: {
         //         user: ""
         //     }
         // }
-</script> -->
+        function viewUser(id) {
+            $.ajax({
+                type: 'get',
+                url:"{{url('/admin/user/view')}}"+"/"+id,
+                dataType: 'html',
+                success:function (data) {
+                    $('#viewUser').html(data);
+                },
+                error:function (error) {
+                    console.log(error);
+                }
+
+            });
+
+        }
+</script>
 
 </body>
 </html>
