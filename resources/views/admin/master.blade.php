@@ -43,9 +43,10 @@
 
     {{--dateTime Picker--}}
     {{--<link rel="stylesheet" href="{{asset('css/bootstrap-datetimepicker.min.css')}}">--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body  class="hold-transition skin-blue sidebar-mini" >
 <div class="wrapper">
 
     <header class="main-header">
@@ -200,11 +201,9 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- DataTables -->
-
-
-
-
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/js.min.js') }}"></script>
+<script src="{{ asset('js/printThis.js') }}"></script>
 @yield('script')
 {{--datetimepicker--}}
 {{--<script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>--}}
@@ -212,12 +211,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-
 <!-- <script>
-        var user = {!! json_encode((array)auth()->user()) !!};
-        console.log(user)
+        {{--var user = {!! json_encode((array)auth()->user()) !!};--}}
+        {{--console.log(user)--}}
         // window.Laravel = {
-        //     csrfToken: '{{csrf_token()}}',
+        {{--//     csrfToken: '{{csrf_token()}}',--}}
         //     auth: {
         //         user: ""
         //     }

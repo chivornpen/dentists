@@ -12,6 +12,7 @@
 }
 .edit-form-control {
     border-radius: 5px;
+    outline: none;
     padding: 6px 10px;
     border: 1px solid #ddd;
     font-family: "Times New Roman", serif;
@@ -19,13 +20,11 @@
     /*box-shadow: 0 0px 1px 0px #9d9d9d;*/
     width: 100%;
 }
-<<<<<<< HEAD
 .height-35px{
     height:35px;
 }
-=======
+
 .required:after { content:" *";color:red }
->>>>>>> c9a3a8c1fcc4153d8a2feebc0d7c37b0d39f7bbc
 
 .edit-dropdown-control{
     border-radius: 4px;
@@ -108,7 +107,10 @@
     display:none;
 }
 .pandding-2{
-    padding: 4px;
+    padding: 6px;
+}
+.padding-10{
+    padding: 10px;
 }
 .center{
     text-align: center;

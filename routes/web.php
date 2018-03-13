@@ -80,12 +80,37 @@
         Route::get('/section/create/{name}','DoctorController@createSection');
         Route::get('/get/select/section','DoctorController@selectSection');
 
-        //servay
         //doctor
         Route::resource('servay','ServayController');
         Route::get('/servay/edit/{id}','ServayController@edit');
         Route::get('/servay/delete/{id}','ServayController@destroy');
 
+        //plan
+        Route::resource('/plan','planController');
+        Route::get('/plan/viewCurrent/{id}','planController@viewCurrent');
+        Route::get('/plan/detail/view/{id}','planController@viewDetail');
+        Route::get('/plan/detail/content/{id}','planController@getContentViewDetail');
+        Route::get('/plan/detail/update/complete/{id}','planController@completed');
+        //doctor appointment
+        Route::get('/plan/doctor/appointment/{id}','planController@doctorAppointment');
+        Route::get('/plan/get/price/treatment/{id}','planController@getPriceTreatment');
+
+
+        //treatment procedure
+        Route::resource('/treatmentprocedure','treatmentProcedure');
+        //getTreatment
+        Route::get('/gettreatment/change/{id}','treatmentProcedure@getTreatment');
+        //get doctor
+        Route::get('/getdoctor/by/branch/{id}','treatmentProcedure@getDoctor');
+        Route::get('/get/doctor/appointment/{id}','treatmentProcedure@getDoctorApp');
+
+        //Invoice
+        Route::resource('/invoice','invoiceController');
+        Route::get('/invoice/show/plan/detail/{id}','invoiceController@showDetailPlan');
+        Route::get('/invoice/print/invoice/{id}','invoiceController@printInvoice');
+
+        //prescription
+        Route::resource('/prescription','prescriptionController');
     });
 
 
