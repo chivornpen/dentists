@@ -1,10 +1,11 @@
 <?php
 
-    Route::get('/','DefaultController@index');
+    Route::get('/','DefaultController@index')->middleware('tran');
 
-    Route::group(['middleware'=>'checklog','auth','web'],function (){
+    Route::group(['middleware'=>['checklog','tran','auth','web']],function (){
 
-//        Route::get('/home','DefaultController@index');
+        Route::get('/home','DefaultController@index');
+        Route::get('/admin/locale/{locale}','DefaultController@locale');
         Route::get('/admin','DefaultController@AdminPanel');
         Route::get('/role/view','RoleController@index');
         Route::post('/admin/create/role','RoleController@createRole');
@@ -31,6 +32,12 @@
         Route::get('/admin/reset/password/{id}','UserController@resetPassword');
         Route::patch('/admin/reset/user/password/{id}','UserController@resetPasswordSuccess');
 
+<<<<<<< HEAD
+        //categories (create category and article)
+        Route::resource('/category','CategoryController');
+        Route::get('/category/delete/{id}','CategoryController@deleteCate');
+        Route::get('/category/edit/{id}','CategoryController@edit');
+=======
         //Permission
         Route::get('/admin/permission','PermissionContoller@create');
         Route::get('/admin/permission/list','PermissionContoller@index');
@@ -159,6 +166,42 @@
 
 
 
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
+
+
+        //Article
+        Route::resource('/article','ArticleController');
+
+        //Language
+        Route::resource('/language','LanguageController');
+        Route::get('/language/edit/{id}','LanguageController@edit');
+        Route::patch('/language/update/{id}','LanguageController@update');
+        Route::get('/language/delete/{id}','LanguageController@destroy');
+
+
+        //category product
+        Route::resource('/categoryproduct','categoryProductController');
+
+        //category product
+        Route::resource('/categoryproduct','categoryProductController');
+        Route::get('/category/product/change/parent/{id}','categoryProductController@changeParent');
+        Route::get('/category/product/edit/{id}/{language_id}','categoryProductController@edit');
+        Route::get('/category/product/delete/{id}','categoryProductController@show');
+
+        //product
+        Route::resource('/product','productController');
+
+        //category
+        Route::resource('/category','CategoryController');
+        Route::get('/category/edit/{id}/{langId}','CategoryController@edit');
+        Route::patch('/category/update/{id}','CategoryController@update');
+        Route::get('/category/delete/{id}','CategoryController@destroy');
+        Route::get('/get/select/parent','CategoryController@getSelectParent');
+        Route::get('/get/select/language/{id}','CategoryController@getSelectLanguage');
+        Route::get('/get/select/parent/{id}','CategoryController@selectParent');
+
+        //client
+        Route::resource('/client','ClientController');
 
 
 
@@ -172,15 +215,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
+    });
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

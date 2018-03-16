@@ -4,30 +4,32 @@
         <br>
             <div class="panel panel-default">
                 {{--Create Users--}}
-                        <div class="panel-heading">Create User</div>
+                        <div class="{{\Illuminate\Support\Facades\Lang::locale()==='kh' ? 'kh-moul panel-heading' : 'time-roman panel-heading'  }}">
+                            {{trans('label.user')}}
+                        </div>
                         <div class="panel-body">
                                 {!! Form::open(['action'=>'UserController@stored','method'=>'POST','files'=>true]) !!}
                                     <div class="row">
                                         <div class="col-md-10">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    {!! Form::label('name','&nbsp;User Name',['class'=>'edit-label']) !!}
-                                                    {!! Form::text('name',null,['class'=>'edit-form-control','placeholder'=>'Name', 'required'=>true ]) !!}
+                                                    <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.name')}}</span>
+                                                    {!! Form::text('name',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.name')]) !!}
                                                     @if($errors->has('name'))
                                                         <span class="text-danger">{{$errors->first('name')}}</span>
                                                     @endif
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    {!! Form::label('user_name','&nbsp;Diplay Name',['class'=>'edit-label']) !!}
-                                                    {!! Form::text('username',null,['class'=>'edit-form-control','placeholder'=>'User Name', 'required'=>true ]) !!}
+                                                    <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.user_name')}}</span>
+                                                    {!! Form::text('username',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.user_name')]) !!}
                                                     @if($errors->has('username'))
                                                         <span class="text-danger">{{$errors->first('username')}}</span>
                                                     @endif
 
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    {!! Form::label('email','&nbsp;Email Address',['class'=>'edit-label']) !!}
-                                                    {!! Form::email('email',null,['class'=>'edit-form-control','placeholder'=>'example@gmail.com', 'required'=>true ]) !!}
+                                                    <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.email')}}</span>
+                                                    {!! Form::email('email',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.user_name')]) !!}
                                                     @if($errors->has('email'))
                                                         <span class="text-danger">{{$errors->first('email')}}</span>
                                                     @endif
@@ -35,7 +37,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    {!! Form::label('password','&nbsp;Password',['class'=>'edit-label']) !!}
+                                                    <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.password')}}</span>
                                                     {!! Form::password('password',['class'=>'edit-form-control','pattern'=>'.{8,}','placeholder'=>'Password','onchange'=>"this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 8 characters' : '');
                                                     if(this.checkValidity()) form.confirm_pass.pattern = this.value;",'required'=>true ]) !!}
                                                     @if($errors->has('password'))
@@ -43,21 +45,31 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    {!! Form::label('confirm','&nbsp;Confirm',['class'=>'edit-label']) !!}
+                                                    <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.confirm')}}</span>
                                                     {!! Form::password('confirm_pass',['class'=>'edit-form-control','placeholder'=>'Confirm password','pattern'=>'.{8,}','onchange'=>"this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');", 'required'=>true ]) !!}
 
                                                 </div>
 
                                                 <div class="col-lg-3">
+<<<<<<< HEAD
+                                                    <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.role')}}</span>
+                                                    {!! Form::select('role',$role,null,['class'=>'edit-form-control','placeholder'=>'Role name', 'required'=>true ]) !!}
+=======
                                                     {!! Form::label('Role','&nbsp;Role',['class'=>'edit-label margin-left-5px']) !!}
                                                     {!! Form::select('role',$role,null,['class'=>'edit-form-control height-35px','placeholder'=>'Role name', 'required'=>true ]) !!}
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                                                     @if($errors->has('role'))
                                                         <span class="text-danger">{{$errors->first('role')}}</span>
                                                     @endif
                                                 </div>
                                                 <div class="col-lg-3">
+<<<<<<< HEAD
+                                                    <span class="{{Lang::locale()=='kh'? 'kh-os required' : 'arial'}}">{{trans('label.position')}}</span>
+                                                    {!! Form::select('position',$position,null,['class'=>'edit-form-control','placeholder'=>'Position name', 'required'=>true ]) !!}
+=======
                                                     {!! Form::label('Position','&nbsp;Position',['class'=>'edit-label']) !!}
                                                     {!! Form::select('position',$position,null,['class'=>'edit-form-control height-35px','placeholder'=>'Position name', 'required'=>true ]) !!}
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                                                     @if($errors->has('position'))
                                                         <span class="text-danger">{{$errors->first('position')}}</span>
                                                     @endif
@@ -119,7 +131,7 @@
                                     <!-- /.box-body -->
                             </div>
                             <!-- Modal -->
-                            <div id="editUser" class="modal fade" role="dialog">
+                            <div id="myModal" class="modal fade" role="dialog">
                                 <div id="editUser">
 
                                 </div>

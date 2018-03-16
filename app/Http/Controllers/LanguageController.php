@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class ClientController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $language = Language::where('active',1)->get();
+        return view('admin.languages.index',compact('language'));
     }
 
     /**
@@ -23,16 +26,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $locale = Lang::locale();
-        $lang=[];
-        if(Session::has('langId')){
-            $lang = Session::get('langId');
-        }
-        $language = Language::whereNotIn('id',$lang)->where('active',1)->pluck('name','id');
-        $l = Language::where('code',$locale)->value('id');
-        $lang = Language::find($l);
-        $category = $lang->categories()->pluck('name','categories.id');
-        return view('admin.categories.create',compact('language','category'));
+
+        return view('admin.languages.create');
     }
 
     /**
@@ -43,7 +38,14 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){
+            $lang = new Language();
+            $lang->code    =  trim($request->code);
+            $lang->name    =  trim($request->name);
+            $lang->user_id   = Auth::user()->id;
+            $lang->active   = 1;
+            $lang->save();
+        }
     }
 
     /**
@@ -65,7 +67,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lang = Language::find($id);
+        return view('admin.languages.edit',compact('lang'));
     }
 
     /**
@@ -88,6 +91,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lang = Language::find($id);
+        $lang->active = 0;
+        $lang->user_id = Auth::user()->id;
+        $lang->save();
     }
 }

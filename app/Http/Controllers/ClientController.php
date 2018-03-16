@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Permission;
-class PermissionContoller extends Controller
+
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class PermissionContoller extends Controller
      */
     public function index()
     {
-        $per = Permission::all();
-        return view('admin.permission.index',compact('per'));
+        //
     }
 
     /**
@@ -24,8 +23,16 @@ class PermissionContoller extends Controller
      */
     public function create()
     {
-        $per = Permission::where('isLock',0)->get();
-        return view('admin.permission.viewPer');
+        $locale = Lang::locale();
+        $lang=[];
+        if(Session::has('langId')){
+            $lang = Session::get('langId');
+        }
+        $language = Language::whereNotIn('id',$lang)->where('active',1)->pluck('name','id');
+        $l = Language::where('code',$locale)->value('id');
+        $lang = Language::find($l);
+        $category = $lang->categories()->pluck('name','categories.id');
+        return view('admin.categories.create',compact('language','category'));
     }
 
     /**
@@ -47,9 +54,7 @@ class PermissionContoller extends Controller
      */
     public function show($id)
     {
-        $per = Permission::find($id);
-        $per->isLock=0;
-        $per->save();
+        //
     }
 
     /**
@@ -60,9 +65,7 @@ class PermissionContoller extends Controller
      */
     public function edit($id)
     {
-        $per = Permission::find($id);
-        $per->isLock=1;
-        $per->save();
+        //
     }
 
     /**

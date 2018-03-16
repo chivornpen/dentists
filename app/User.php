@@ -25,6 +25,9 @@ class User extends Authenticatable
     public function position(){
         return $this->belongsTo(Position::class);
     }
+    public function categories(){
+        return $this->hasMany(Category::class,'user_added');
+    }
 
     public function pricelists(){
         return $this->hasMany(Pricelist::class);

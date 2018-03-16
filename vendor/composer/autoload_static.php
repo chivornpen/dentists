@@ -312,10 +312,16 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
     public static $classMap = array (
         'App\\Appointment' => __DIR__ . '/../..' . '/app/Appointment.php',
         'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
+<<<<<<< HEAD
+        'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
+        'App\\Categoryproduct' => __DIR__ . '/../..' . '/app/Categoryproduct.php',
+        'App\\Client' => __DIR__ . '/../..' . '/app/Client.php',
+=======
         'App\\Branch' => __DIR__ . '/../..' . '/app/Branch.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Client' => __DIR__ . '/../..' . '/app/Client.php',
         'App\\Clienthis' => __DIR__ . '/../..' . '/app/Clienthis.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Doctor' => __DIR__ . '/../..' . '/app/Doctor.php',
         'App\\Doctorhis' => __DIR__ . '/../..' . '/app/Doctorhis.php',
@@ -331,8 +337,12 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'App\\Http\\Controllers\\DefaultController' => __DIR__ . '/../..' . '/app/Http/Controllers/DefaultController.php',
         'App\\Http\\Controllers\\DoctorController' => __DIR__ . '/../..' . '/app/Http/Controllers/DoctorController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+<<<<<<< HEAD
+        'App\\Http\\Controllers\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/LanguageController.php',
+=======
         'App\\Http\\Controllers\\ImportController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImportController.php',
         'App\\Http\\Controllers\\PermissionContoller' => __DIR__ . '/../..' . '/app/Http/Controllers/PermissionContoller.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
         'App\\Http\\Controllers\\PositionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PositionController.php',
         'App\\Http\\Controllers\\PricelistController' => __DIR__ . '/../..' . '/app/Http/Controllers/PricelistController.php',
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
@@ -341,6 +351,10 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'App\\Http\\Controllers\\StaffController' => __DIR__ . '/../..' . '/app/Http/Controllers/StaffController.php',
         'App\\Http\\Controllers\\SupplyController' => __DIR__ . '/../..' . '/app/Http/Controllers/SupplyController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+<<<<<<< HEAD
+        'App\\Http\\Controllers\\categoryProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/categoryProductController.php',
+        'App\\Http\\Controllers\\productController' => __DIR__ . '/../..' . '/app/Http/Controllers/productController.php',
+=======
         'App\\Http\\Controllers\\branchController' => __DIR__ . '/../..' . '/app/Http/Controllers/branchController.php',
         'App\\Http\\Controllers\\clientController' => __DIR__ . '/../..' . '/app/Http/Controllers/clientController.php',
         'App\\Http\\Controllers\\invoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/invoiceController.php',
@@ -348,16 +362,29 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'App\\Http\\Controllers\\prescriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/prescriptionController.php',
         'App\\Http\\Controllers\\treatmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/treatmentController.php',
         'App\\Http\\Controllers\\treatmentProcedure' => __DIR__ . '/../..' . '/app/Http/Controllers/treatmentProcedure.php',
+<<<<<<< HEAD
+=======
+        'App\\Http\\Controllers\\SupplyController' => __DIR__ . '/../..' . '/app/Http/Controllers/SupplyController.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
+>>>>>>> 11bfeca9d8532e1dcab2d6b51d47bde998d16145
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Checklogin' => __DIR__ . '/../..' . '/app/Http/Middleware/Checklogin.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+<<<<<<< HEAD
         'App\\Import' => __DIR__ . '/../..' . '/app/Import.php',
+=======
+<<<<<<< HEAD
+        'App\\Http\\Middleware\\switchLanguage' => __DIR__ . '/../..' . '/app/Http/Middleware/switchLanguage.php',
+        'App\\Language' => __DIR__ . '/../..' . '/app/Language.php',
+=======
+>>>>>>> 11bfeca9d8532e1dcab2d6b51d47bde998d16145
         'App\\Invoice' => __DIR__ . '/../..' . '/app/Invoice.php',
         'App\\Permission' => __DIR__ . '/../..' . '/app/Permission.php',
         'App\\Plan' => __DIR__ . '/../..' . '/app/Plan.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
         'App\\Position' => __DIR__ . '/../..' . '/app/Position.php',
         'App\\Prescription' => __DIR__ . '/../..' . '/app/Prescription.php',
         'App\\Pricelist' => __DIR__ . '/../..' . '/app/Pricelist.php',
@@ -391,6 +418,13 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreateAppointmentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_01_134911_create_appointments_table.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_12_184631_create_articles_table.php',
+<<<<<<< HEAD
+        'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_02_181755_create_categories_table.php',
+        'CreateCategoryproductsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_06_182951_create_categoryproducts_table.php',
+        'CreateClientsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_13_181128_create_clients_table.php',
+        'CreateLanguagesTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_27_221023_create_languages_table.php',
+        'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+=======
         'CreateBranchesTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_14_081053_create_branches_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_01_145200_create_categories_table.php',
         'CreateClientsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_22_142834_create_clients_table.php',
@@ -403,11 +437,17 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'CreatePermissionUserTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_22_090334_create_permission_user_table.php',
         'CreatePermissionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_21_231742_create_permissions_table.php',
         'CreatePlansTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_27_155044_create_plans_table.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
         'CreatePositionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_22_175734_create_positions_table.php',
         'CreatePrescriptionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_13_101454_create_prescriptions_table.php',
         'CreatePricelistsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_07_091543_create_pricelists_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_135034_create_products_table.php',
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_22_175923_create_roles_table.php',
+<<<<<<< HEAD
+        'CreateTableCategoryLanguage' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_184118_create_table_category_language.php',
+        'CreateTableCategoryproductLanguage' => __DIR__ . '/../..' . '/database/migrations/2018_03_09_180131_create_table_categoryproduct_language.php',
+        'CreateTableClientLanguage' => __DIR__ . '/../..' . '/database/migrations/2018_03_13_182119_create_table_client_language.php',
+=======
         'CreateSectionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_22_154952_create_sections_table.php',
         'CreateServaysTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_26_143347_create_servays_table.php',
         'CreateStaffTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_14_081322_create_staff_table.php',
@@ -420,6 +460,7 @@ class ComposerStaticInitfd76d284e5545d00c4278faf06f611d2
         'CreateTreatmentproceduresTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_06_111655_create_treatmentprocedures_table.php',
         'CreateTreatmentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_26_094744_create_treatments_table.php',
         'CreateTreatmenttypesTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_26_094247_create_treatmenttypes_table.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

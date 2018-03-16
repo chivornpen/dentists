@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CamSoft</title>
+    <title>KIHP</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -54,9 +54,9 @@
         <!-- Logo -->
         <a href="{{URL::to('/')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini">CAM</span>
+            <span class="logo-mini">KIHP</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg">CAMSOFTS</span>
+            <span class="logo-lg">KIHP</span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -69,16 +69,22 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
+<<<<<<< HEAD
+
+
+                    <!-- <li class="dropdown messages-menu">
+=======
                     <li class="dropdown messages-menu">
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
                             <span class="label label-success">4</span>
                         </a>
-                    </li>
+                    </li> -->
                     <!-- Notifications: style can be found in dropdown.less -->
 
 
-                    <li class="dropdown notifications-menu">
+                   <!--  <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell-o"></i>
                             <span class="label label-warning">10</span>
@@ -86,7 +92,12 @@
 
                     </li>
 
+<<<<<<< HEAD
+
+                    Tasks: style can be found in dropdown.less
+=======
                     <!-- Tasks: style can be found in dropdown.less -->
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
 
                     <li class="dropdown tasks-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -94,7 +105,53 @@
                             <span class="label label-danger">9</span>
                         </a>
 
+                    </li> -->
+
+                    <li class="dropdown tasks-menu">
+                        {!! Form::select('locale',['en'=>'English','kh'=>'ខ្មែរ'],Lang::locale(),['id'=>'locale','class'=>'margin-top-23 kh-os']) !!}
                     </li>
+<<<<<<< HEAD
+
+                    {{--start user log out--}}
+                <!-- start User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- The user image in the navbar-->
+                            <img src="/photo/{{Auth::user()->photo}}" class="user-image" alt="User Image" style="background: white;border:2px solid green;padding:1px;">
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">{!! Auth::user()->username !!}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img src="/photo/{{Auth::user()->photo}}" class="img-circle" alt="User Image" style="background: white;border:2px solid blue;padding:1px;">
+
+                                <p>
+                                    {!! Auth::user()->username !!} - {!! Auth::user()->position->name !!}
+                                    <small>{!! Auth::user()->email !!} </small>
+                                </p>
+                            </li>
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" onclick='viewUser("{!! Auth::user()->id !!}")' class="btn btn-default btn-flat" data-toggle="modal" data-target="#viewUser" style="border-radius: 5px;"><i class="fa fa-eye"></i> <span class="{{Lang::locale()==='kh'? 'kh-os': 'arial'}}">{{trans('label.profile')}}</span></a>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();" style="border-radius: 5px;"><i class="fa fa-sign-out"></i>
+                                        <span class="{{Lang::locale()==='kh'? 'kh-os': 'arial'}}">{{trans('label.logout')}}</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    {{--end user log out--}}
+
+=======
                     <!-- start User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                       <!-- Menu Toggle Button -->
@@ -147,6 +204,7 @@
                       </ul>
                     </li>
                     <!-- end user -->
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                 </ul>
             </div>
 
@@ -156,7 +214,11 @@
     <aside class="main-sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
+<<<<<<< HEAD
+                    <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 46px" alt="User Image">
+=======
                     <img src="/photo/{{Auth::user()->photo}}" class="img-circle" style="background: white;border:2px solid green;padding:1px; height: 45px;" alt="User Image">
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
                 </div>
                 <div class="pull-left info">
                     <p>{!! Auth::user()->username !!}</p>
@@ -251,6 +313,39 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<<<<<<< HEAD
+
+
+<script type="text/javascript">
+    $('#locale').on('change',function () {
+        var locale= $('#locale').val();
+        $.ajax({
+            type : 'get',
+            url  : "{{url('/admin/locale')}}"+"/"+locale,
+            success:function(){
+                window.location.reload();
+            }
+        });
+    });
+
+    function viewUser(id) {
+        $.ajax({
+            type: 'get',
+            url:"{{url('/admin/user/view')}}"+"/"+id,
+            dataType: 'html',
+            success:function (data) {
+                $('#viewUser').html(data);
+            },
+            error:function (error) {
+                console.log(error);
+            }
+
+        });
+    }
+</script>
+
+
+=======
 <!-- <script>
         {{--var user = {!! json_encode((array)auth()->user()) !!};--}}
         {{--console.log(user)--}}
@@ -280,6 +375,7 @@
 
         }
 </script>
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
 
 </body>
 </html>

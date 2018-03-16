@@ -8,10 +8,16 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Appointment' => $baseDir . '/app/Appointment.php',
     'App\\Article' => $baseDir . '/app/Article.php',
+<<<<<<< HEAD
+    'App\\Category' => $baseDir . '/app/Category.php',
+    'App\\Categoryproduct' => $baseDir . '/app/Categoryproduct.php',
+    'App\\Client' => $baseDir . '/app/Client.php',
+=======
     'App\\Branch' => $baseDir . '/app/Branch.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Client' => $baseDir . '/app/Client.php',
     'App\\Clienthis' => $baseDir . '/app/Clienthis.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Doctor' => $baseDir . '/app/Doctor.php',
     'App\\Doctorhis' => $baseDir . '/app/Doctorhis.php',
@@ -27,8 +33,16 @@ return array(
     'App\\Http\\Controllers\\DefaultController' => $baseDir . '/app/Http/Controllers/DefaultController.php',
     'App\\Http\\Controllers\\DoctorController' => $baseDir . '/app/Http/Controllers/DoctorController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    'App\\Http\\Controllers\\LanguageController' => $baseDir . '/app/Http/Controllers/LanguageController.php',
+=======
+
+>>>>>>> 11bfeca9d8532e1dcab2d6b51d47bde998d16145
     'App\\Http\\Controllers\\ImportController' => $baseDir . '/app/Http/Controllers/ImportController.php',
     'App\\Http\\Controllers\\PermissionContoller' => $baseDir . '/app/Http/Controllers/PermissionContoller.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     'App\\Http\\Controllers\\PositionController' => $baseDir . '/app/Http/Controllers/PositionController.php',
     'App\\Http\\Controllers\\PricelistController' => $baseDir . '/app/Http/Controllers/PricelistController.php',
     'App\\Http\\Controllers\\ProductController' => $baseDir . '/app/Http/Controllers/ProductController.php',
@@ -44,18 +58,45 @@ return array(
     'App\\Http\\Controllers\\prescriptionController' => $baseDir . '/app/Http/Controllers/prescriptionController.php',
     'App\\Http\\Controllers\\treatmentController' => $baseDir . '/app/Http/Controllers/treatmentController.php',
     'App\\Http\\Controllers\\treatmentProcedure' => $baseDir . '/app/Http/Controllers/treatmentProcedure.php',
+<<<<<<< HEAD
+=======
+    'App\\Http\\Controllers\\SupplyController' => $baseDir . '/app/Http/Controllers/SupplyController.php',
+    'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
+<<<<<<< HEAD
+    'App\\Http\\Controllers\\categoryProductController' => $baseDir . '/app/Http/Controllers/categoryProductController.php',
+    'App\\Http\\Controllers\\productController' => $baseDir . '/app/Http/Controllers/productController.php',
+=======
+    'App\\Http\\Controllers\\branchController' => $baseDir . '/app/Http/Controllers/branchController.php',
+    'App\\Http\\Controllers\\clientController' => $baseDir . '/app/Http/Controllers/clientController.php',
+    'App\\Http\\Controllers\\treatmentController' => $baseDir . '/app/Http/Controllers/treatmentController.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
+>>>>>>> 11bfeca9d8532e1dcab2d6b51d47bde998d16145
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Checklogin' => $baseDir . '/app/Http/Middleware/Checklogin.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+<<<<<<< HEAD
     'App\\Import' => $baseDir . '/app/Import.php',
+=======
+<<<<<<< HEAD
+    'App\\Http\\Middleware\\switchLanguage' => $baseDir . '/app/Http/Middleware/switchLanguage.php',
+    'App\\Language' => $baseDir . '/app/Language.php',
+=======
+>>>>>>> 11bfeca9d8532e1dcab2d6b51d47bde998d16145
     'App\\Invoice' => $baseDir . '/app/Invoice.php',
     'App\\Permission' => $baseDir . '/app/Permission.php',
     'App\\Plan' => $baseDir . '/app/Plan.php',
     'App\\Position' => $baseDir . '/app/Position.php',
     'App\\Prescription' => $baseDir . '/app/Prescription.php',
+<<<<<<< HEAD
+=======
+    'App\\Import' => $baseDir . '/app/Import.php',
+    'App\\Permission' => $baseDir . '/app/Permission.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
+    'App\\Position' => $baseDir . '/app/Position.php',
+>>>>>>> 11bfeca9d8532e1dcab2d6b51d47bde998d16145
     'App\\Pricelist' => $baseDir . '/app/Pricelist.php',
     'App\\Product' => $baseDir . '/app/Product.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
@@ -87,6 +128,12 @@ return array(
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
     'CreateAppointmentsTable' => $baseDir . '/database/migrations/2018_03_01_134911_create_appointments_table.php',
     'CreateArticlesTable' => $baseDir . '/database/migrations/2017_12_12_184631_create_articles_table.php',
+<<<<<<< HEAD
+    'CreateCategoriesTable' => $baseDir . '/database/migrations/2018_03_02_181755_create_categories_table.php',
+    'CreateCategoryproductsTable' => $baseDir . '/database/migrations/2018_03_06_182951_create_categoryproducts_table.php',
+    'CreateClientsTable' => $baseDir . '/database/migrations/2018_03_13_181128_create_clients_table.php',
+    'CreateLanguagesTable' => $baseDir . '/database/migrations/2018_02_27_221023_create_languages_table.php',
+=======
     'CreateBranchesTable' => $baseDir . '/database/migrations/2018_02_14_081053_create_branches_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2018_03_01_145200_create_categories_table.php',
     'CreateClientsTable' => $baseDir . '/database/migrations/2018_02_22_142834_create_clients_table.php',
@@ -101,9 +148,22 @@ return array(
     'CreatePlansTable' => $baseDir . '/database/migrations/2018_02_27_155044_create_plans_table.php',
     'CreatePositionsTable' => $baseDir . '/database/migrations/2017_11_22_175734_create_positions_table.php',
     'CreatePrescriptionsTable' => $baseDir . '/database/migrations/2018_03_13_101454_create_prescriptions_table.php',
+<<<<<<< HEAD
+=======
+    'CreateHistoriesTable' => $baseDir . '/database/migrations/2018_03_13_133420_create_histories_table.php',
+    'CreateImportsTable' => $baseDir . '/database/migrations/2018_03_12_103253_create_imports_table.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
+    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePositionsTable' => $baseDir . '/database/migrations/2017_11_22_175734_create_positions_table.php',
+>>>>>>> 11bfeca9d8532e1dcab2d6b51d47bde998d16145
     'CreatePricelistsTable' => $baseDir . '/database/migrations/2018_03_07_091543_create_pricelists_table.php',
     'CreateProductsTable' => $baseDir . '/database/migrations/2018_03_05_135034_create_products_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2017_11_22_175923_create_roles_table.php',
+<<<<<<< HEAD
+    'CreateTableCategoryLanguage' => $baseDir . '/database/migrations/2018_03_05_184118_create_table_category_language.php',
+    'CreateTableCategoryproductLanguage' => $baseDir . '/database/migrations/2018_03_09_180131_create_table_categoryproduct_language.php',
+    'CreateTableClientLanguage' => $baseDir . '/database/migrations/2018_03_13_182119_create_table_client_language.php',
+=======
     'CreateSectionsTable' => $baseDir . '/database/migrations/2018_02_22_154952_create_sections_table.php',
     'CreateServaysTable' => $baseDir . '/database/migrations/2018_02_26_143347_create_servays_table.php',
     'CreateStaffTable' => $baseDir . '/database/migrations/2018_02_14_081322_create_staff_table.php',
@@ -116,6 +176,7 @@ return array(
     'CreateTreatmentproceduresTable' => $baseDir . '/database/migrations/2018_03_06_111655_create_treatmentprocedures_table.php',
     'CreateTreatmentsTable' => $baseDir . '/database/migrations/2018_02_26_094744_create_treatments_table.php',
     'CreateTreatmenttypesTable' => $baseDir . '/database/migrations/2018_02_26_094247_create_treatmenttypes_table.php',
+>>>>>>> aad6970dd43ac7795bd50acede401a769aa325b8
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
