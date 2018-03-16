@@ -13,8 +13,19 @@ class Prescription extends Model
         return $this->belongsTo(Doctor::class);
     }
 
+    public function plan(){
+        return $this->belongsTo(Plan::class);
+    }
     public function treatment(){
         return $this->belongsTo(Treatment::class);
+    }
+
+    public function products(){
+        return $this->belongsToMany(Product::class)->withTimestamps()->withPivot('id','des','qty','price','amount');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 }

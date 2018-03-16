@@ -112,6 +112,16 @@
 
         //prescription
         Route::resource('/prescription','prescriptionController');
+        Route::get('/prescription/get/plan/{id}','prescriptionController@getPlan');
+        Route::get('/prescription/get/treatment/{id}','prescriptionController@getTreatment');
+        Route::get('/prescription/get/price/{id}','prescriptionController@getPrice');
+        Route::get('/prescription/get/current/create/{id}','prescriptionController@getCurrent');
+        Route::get('/prescription/delete/prescription/{id}','prescriptionController@deletePre');
+        Route::get('/prescription/print/prescription/{id}','prescriptionController@printPre');
+        Route::get('/prescription/client/history/{id}','prescriptionController@medicalHistory');
+
+
+
         //category
         Route::resource('category','CategoryController');
         Route::get('/category/edit/{id}','CategoryController@edit');

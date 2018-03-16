@@ -11,7 +11,9 @@ class Plan extends Model
     public function treatments(){
         return $this->belongsToMany(Treatment::class)->withTimestamps()->withPivot('teeNo','qty','price','amount','appointment_id');
     }
-
+    public function prescriptions(){
+        return $this->hasMany(Prescription::class);
+    }
     public function client(){
         return $this->belongsTo(Client::class);
     }

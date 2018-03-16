@@ -27,4 +27,7 @@ class Product extends Model
     public function tmpimports(){
         return $this->hasMany(Tmpimport::class);
     }
+    public function prescriptions(){
+        return $this->belongsToMany(Prescription::class)->withTimestamps()->withPivot('id','des','qty','price','amount');
+    }
 }
